@@ -1,5 +1,6 @@
 package uk.gov.hmcts.reform.fpl.controllers;
 
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import io.swagger.annotations.Api;
 import org.apache.commons.lang3.tuple.Pair;
@@ -22,6 +23,7 @@ import java.util.Map;
 
 import static uk.gov.hmcts.reform.fpl.utils.SubmittedFormFilenameHelper.buildFileName;
 
+@SuppressWarnings("LineLength")
 @Api
 @RestController
 @RequestMapping("/callback/standard-direction")
@@ -44,15 +46,30 @@ public class StandardDirectionController {
         this.applicationEventPublisher = applicationEventPublisher;
     }
 
+    @SuppressWarnings("unchecked")
     @PostMapping("/about-to-start")
     public AboutToStartOrSubmitCallbackResponse handleAboutToStartEvent(
         @RequestHeader(value = "authorization") String authorization,
         @RequestBody CallbackRequest callbackrequest) {
-        String judgeType = "local ";
-        String judgeName = "Joseph";
+
         CaseDetails caseDetails = callbackrequest.getCaseDetails();
 
         Map<String, Object> data = caseDetails.getData();
+
+        data.put("standardDirections", ImmutableList.builder()
+            .add(ImmutableMap.builder()
+                .put("id", "1")
+                .put("value", ImmutableMap.builder()
+                    .put("content", "2. The proceedings are allocated for case management to the local  reserved to Joseph.")
+                    .build())
+                .build())
+            .add(ImmutableMap.builder()
+                .put("id", "2")
+                .put("value", ImmutableMap.builder()
+                    .put("content", "1. another one")
+                    .build())
+                .build())
+            .build());
 
         return AboutToStartOrSubmitCallbackResponse.builder()
             .data(data)
@@ -65,7 +82,6 @@ public class StandardDirectionController {
                                                                @RequestHeader(value = "user-id") String userId,
                                                                @RequestBody CallbackRequest callbackrequest) {
 
-        System.out.println("*****HHHHHHHHHHHHHHHHHHHHHHHHHH*");
         CaseDetails caseDetails = callbackrequest.getCaseDetails();
 
         byte[] pdf = documentGeneratorService.generateStandardDefPDF(caseDetails,

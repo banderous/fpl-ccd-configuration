@@ -1430,5 +1430,13 @@
     "FieldType": "Text",
     "ElementLabel": "Relationship",
     "SecurityClassification": "Public"
+  },
+  {
+    "LiveFrom": "01/01/2017",
+    "ID": "StandardDirection",
+    "ListElementCode": "content",
+    "FieldType": "Text",
+    "ElementLabel": "Standard Direction",
+    "SecurityClassification": "Public"
   }
 ]

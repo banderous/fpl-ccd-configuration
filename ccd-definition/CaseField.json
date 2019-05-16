@@ -457,9 +457,28 @@
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
     "ID": "standardDirectionOne",
-    "Label": "Standard Direction",
+    "Label": "Allocation",
     "FieldType": "Text",
     "HintText": "Standard direction one of case",
+    "SecurityClassification": "Public"
+  },
+  {
+    "LiveFrom": "01/01/2017",
+    "CaseTypeID": "CARE_SUPERVISION_EPO",
+    "ID": "standardDirectionTwo",
+    "Label": "Appointment of guardian",
+    "FieldType": "Text",
+    "HintText": "Standard direction one of case",
+    "SecurityClassification": "Public"
+  },
+  {
+    "LiveFrom": "01/01/2017",
+    "CaseTypeID": "CARE_SUPERVISION_EPO",
+    "ID": "standardDirections",
+    "Label": "Standard Direction",
+    "FieldType": "Collection",
+    "FieldTypeParameter": "StandardDirection",
+    "HintText": "Standard Directions",
     "SecurityClassification": "Public"
   },
   {

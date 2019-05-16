@@ -538,7 +538,7 @@
     "CaseEventID": "standardDirection",
     "CaseFieldID": "courtName",
     "PageFieldDisplayOrder": 1,
-    "DisplayContext": "MANDATORY",
+    "DisplayContext": "OPTIONAL",
     "PageID": 1,
     "PageDisplayOrder": 1,
     "PageColumnNumber": 1
@@ -549,7 +549,7 @@
     "CaseEventID": "standardDirection",
     "CaseFieldID": "childrenNames",
     "PageFieldDisplayOrder": 2,
-    "DisplayContext": "MANDATORY",
+    "DisplayContext": "OPTIONAL",
     "PageID": 1,
     "PageDisplayOrder": 1,
     "PageColumnNumber": 1
@@ -560,7 +560,7 @@
     "CaseEventID": "standardDirection",
     "CaseFieldID": "languages",
     "PageFieldDisplayOrder": 3,
-    "DisplayContext": "MANDATORY",
+    "DisplayContext": "OPTIONAL",
     "PageID": 1,
     "PageDisplayOrder": 1,
     "PageColumnNumber": 1
@@ -571,7 +571,7 @@
     "CaseEventID": "standardDirection",
     "CaseFieldID": "gender",
     "PageFieldDisplayOrder": 4,
-    "DisplayContext": "MANDATORY",
+    "DisplayContext": "OPTIONAL",
     "PageID": 1,
     "PageDisplayOrder": 1,
     "PageColumnNumber": 1
@@ -582,7 +582,7 @@
     "CaseEventID": "standardDirection",
     "CaseFieldID": "dateOfBirth",
     "PageFieldDisplayOrder": 5,
-    "DisplayContext": "MANDATORY",
+    "DisplayContext": "OPTIONAL",
     "PageID": 1,
     "PageDisplayOrder": 1,
     "PageColumnNumber": 1
@@ -593,7 +593,7 @@
     "CaseEventID": "standardDirection",
     "CaseFieldID": "nameOfJudge",
     "PageFieldDisplayOrder": 6,
-    "DisplayContext": "MANDATORY",
+    "DisplayContext": "OPTIONAL",
     "PageID": 1,
     "PageDisplayOrder": 1,
     "PageColumnNumber": 1
@@ -604,7 +604,7 @@
     "CaseEventID": "standardDirection",
     "CaseFieldID": "courtDate",
     "PageFieldDisplayOrder": 7,
-    "DisplayContext": "MANDATORY",
+    "DisplayContext": "OPTIONAL",
     "PageID": 1,
     "PageDisplayOrder": 1,
     "PageColumnNumber": 1
@@ -615,7 +615,7 @@
     "CaseEventID": "standardDirection",
     "CaseFieldID": "localAuthority",
     "PageFieldDisplayOrder": 7,
-    "DisplayContext": "MANDATORY",
+    "DisplayContext": "OPTIONAL",
     "PageID": 1,
     "PageDisplayOrder": 1,
     "PageColumnNumber": 1
@@ -626,7 +626,7 @@
     "CaseEventID": "standardDirection",
     "CaseFieldID": "time",
     "PageFieldDisplayOrder": 8,
-    "DisplayContext": "MANDATORY",
+    "DisplayContext": "OPTIONAL",
     "PageID": 1,
     "PageDisplayOrder": 1,
     "PageColumnNumber": 1
@@ -637,7 +637,7 @@
     "CaseEventID": "standardDirection",
     "CaseFieldID": "country",
     "PageFieldDisplayOrder": 9,
-    "DisplayContext": "MANDATORY",
+    "DisplayContext": "OPTIONAL",
     "PageID": 1,
     "PageDisplayOrder": 1,
     "PageColumnNumber": 1
@@ -648,7 +648,7 @@
     "CaseEventID": "standardDirection",
     "CaseFieldID": "respondentDetails",
     "PageFieldDisplayOrder": 10,
-    "DisplayContext": "MANDATORY",
+    "DisplayContext": "OPTIONAL",
     "PageID": 1,
     "PageDisplayOrder": 1,
     "PageColumnNumber": 1
@@ -659,7 +659,7 @@
     "CaseEventID": "standardDirection",
     "CaseFieldID": "personName",
     "PageFieldDisplayOrder": 11,
-    "DisplayContext": "MANDATORY",
+    "DisplayContext": "OPTIONAL",
     "PageID": 1,
     "PageDisplayOrder": 1,
     "PageColumnNumber": 1
@@ -671,6 +671,28 @@
     "CaseFieldID": "standardDirectionOne",
     "PageFieldDisplayOrder": 12,
     "DisplayContext": "MANDATORY",
+    "PageID": 1,
+    "PageDisplayOrder": 1,
+    "PageColumnNumber": 1
+  },
+  {
+    "LiveFrom": "01/01/2017",
+    "CaseTypeID": "CARE_SUPERVISION_EPO",
+    "CaseEventID": "standardDirection",
+    "CaseFieldID": "standardDirectionTwo",
+    "PageFieldDisplayOrder": 13,
+    "DisplayContext": "MANDATORY",
+    "PageID": 1,
+    "PageDisplayOrder": 1,
+    "PageColumnNumber": 1
+  },
+  {
+    "LiveFrom": "01/01/2017",
+    "CaseTypeID": "CARE_SUPERVISION_EPO",
+    "CaseEventID": "standardDirection",
+    "CaseFieldID": "standardDirections",
+    "PageFieldDisplayOrder": 14,
+    "DisplayContext": "OPTIONAL",
     "PageID": 1,
     "PageDisplayOrder": 1,
     "PageColumnNumber": 1

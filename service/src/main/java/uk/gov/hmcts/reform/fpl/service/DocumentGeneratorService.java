@@ -59,7 +59,6 @@ public class DocumentGeneratorService {
         }
 
         // create request entity
-
         // set request headers
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
