@@ -715,7 +715,7 @@
   "CaseTypeID": "CARE_SUPERVISION_EPO",
   "CaseEventID": "standardDirection",
   "CaseFieldID": "standardDirectionDocument",
-  "CallBackURLMidEvent": "${CCD_DEF_CASE_SERVICE_BASE_URL}/callback/standard-direction/mid-event-2",
+  "CallBackURLMidEvent": "${CCD_DEF_CASE_SERVICE_BASE_URL}/callback/standard-direction/about-to-submit",
   "RetriesTimeoutURLMidEvent": "1,2,3,4,5",
   "PageFieldDisplayOrder": 1,
   "DisplayContext": "READONLY",

@@ -15,6 +15,7 @@ import uk.gov.hmcts.reform.ccd.client.model.AboutToStartOrSubmitCallbackResponse
 import uk.gov.hmcts.reform.ccd.client.model.CallbackRequest;
 import uk.gov.hmcts.reform.ccd.client.model.CaseDetails;
 import uk.gov.hmcts.reform.document.domain.Document;
+import uk.gov.hmcts.reform.fpl.events.SubmittedCaseEvent;
 import uk.gov.hmcts.reform.fpl.service.DocumentGeneratorService;
 import uk.gov.hmcts.reform.fpl.service.UploadDocumentService;
 import uk.gov.hmcts.reform.fpl.service.UserDetailsService;
@@ -112,6 +113,36 @@ public class StandardDirectionController {
         return AboutToStartOrSubmitCallbackResponse.builder()
             .data(caseDetails.getData())
             .build();
+    }
+
+    @PostMapping("/about-to-submit")
+    @SuppressWarnings("unchecked")
+    public AboutToStartOrSubmitCallbackResponse handleAboutToSubmitEvent(
+        @RequestBody CallbackRequest callbackrequest) {
+
+        System.out.println("START: ************ about to submit handler *****************");
+
+        CaseDetails caseDetails = callbackrequest.getCaseDetails();
+        Map<String, Object> data = caseDetails.getData();
+
+        System.out.println("END: ************ about to submit handler *****************");
+
+        return AboutToStartOrSubmitCallbackResponse.builder()
+            .data(data)
+            .build();
+    }
+
+    @PostMapping("/submitted")
+    public void handleSubmittedEvent(
+        @RequestHeader(value = "authorization") String authorization,
+        @RequestHeader(value = "user-id") String userId,
+        @RequestBody CallbackRequest callbackRequest) {
+
+        System.out.println("START: ************ submitted handler *****************");
+
+        applicationEventPublisher.publishEvent(new SubmittedCaseEvent(callbackRequest, authorization, userId));
+
+        System.out.println("END: ************  submitted handler *****************");
     }
 
     private List<String> buildStandardDirections(Map<String, Object> data) {
