@@ -701,7 +701,7 @@
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
     "CaseEventID": "standardDirection",
-    "CaseFieldID": "standardDirectionDocument",
+    "CaseFieldID": "standardDirectionAboutToGenerateDocument",
     "CallBackURLMidEvent": "${CCD_DEF_CASE_SERVICE_BASE_URL}/callback/standard-direction/mid-event",
     "RetriesTimeoutURLMidEvent": "1,2,3,4,5",
     "PageFieldDisplayOrder": 1,
@@ -709,5 +709,18 @@
     "PageID": 2,
     "PageDisplayOrder": 2,
     "PageColumnNumber": 1
+  },
+  {
+  "LiveFrom": "01/01/2017",
+  "CaseTypeID": "CARE_SUPERVISION_EPO",
+  "CaseEventID": "standardDirection",
+  "CaseFieldID": "standardDirectionDocument",
+  "CallBackURLMidEvent": "${CCD_DEF_CASE_SERVICE_BASE_URL}/callback/standard-direction/mid-event-2",
+  "RetriesTimeoutURLMidEvent": "1,2,3,4,5",
+  "PageFieldDisplayOrder": 1,
+  "DisplayContext": "READONLY",
+  "PageID": 3,
+  "PageDisplayOrder": 3,
+  "PageColumnNumber": 1
   }
 ]

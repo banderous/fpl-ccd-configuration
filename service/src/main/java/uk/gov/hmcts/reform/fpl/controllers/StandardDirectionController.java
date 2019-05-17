@@ -54,6 +54,8 @@ public class StandardDirectionController {
         @RequestHeader(value = "authorization") String authorization,
         @RequestBody CallbackRequest callbackrequest) {
 
+        System.out.println("START: ************ about to start handler *****************");
+
         CaseDetails caseDetails = callbackrequest.getCaseDetails();
 
         Map<String, Object> data = caseDetails.getData();
@@ -76,6 +78,8 @@ public class StandardDirectionController {
                 .build())
             .build());
 
+        System.out.println("END: ************ about to start handler *****************");
+
         return AboutToStartOrSubmitCallbackResponse.builder()
             .data(data)
             .build();
@@ -87,6 +91,7 @@ public class StandardDirectionController {
                                                                @RequestHeader(value = "user-id") String userId,
                                                                @RequestBody CallbackRequest callbackrequest) {
 
+        System.out.println("START: ********* mid event handler ***************");
         CaseDetails caseDetails = callbackrequest.getCaseDetails();
 
         byte[] pdf = documentGeneratorService.generateStandardDefPDF(caseDetails,
@@ -101,6 +106,8 @@ public class StandardDirectionController {
             .put("document_binary_url", document.links.binary.href)
             .put("document_filename", document.originalDocumentName)
             .build());
+
+        System.out.println("END: ************ mid event handler *****************");
 
         return AboutToStartOrSubmitCallbackResponse.builder()
             .data(caseDetails.getData())
@@ -120,7 +127,6 @@ public class StandardDirectionController {
         if (numOfStandardDirections > 1) {
             children = children + "ren";
         }
-
 
         // get standard directions from case data
         String sd1 = "2. The proceedings are allocated for case management to the "
