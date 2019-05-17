@@ -62,6 +62,7 @@ public class DocumentGeneratorService {
         // set request headers
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
+
         Docmosis requestBody = new Docmosis("FPL-template-docmosis.docx",
             "generatedStandardDirection.pdf", caseDetails.getData());
         HttpEntity<Docmosis> request = new HttpEntity<Docmosis>(requestBody, headers);
@@ -79,4 +80,6 @@ public class DocumentGeneratorService {
 
         return response.getBody();
     }
+
+
 }

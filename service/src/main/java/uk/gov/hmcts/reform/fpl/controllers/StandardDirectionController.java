@@ -19,6 +19,8 @@ import uk.gov.hmcts.reform.fpl.service.DocumentGeneratorService;
 import uk.gov.hmcts.reform.fpl.service.UploadDocumentService;
 import uk.gov.hmcts.reform.fpl.service.UserDetailsService;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import static uk.gov.hmcts.reform.fpl.utils.SubmittedFormFilenameHelper.buildFileName;
@@ -56,17 +58,20 @@ public class StandardDirectionController {
 
         Map<String, Object> data = caseDetails.getData();
 
+        // create standard directions
+        List<String> standardDirections = buildStandardDirections(caseDetails.getData());
+
         data.put("standardDirections", ImmutableList.builder()
             .add(ImmutableMap.builder()
                 .put("id", "1")
                 .put("value", ImmutableMap.builder()
-                    .put("content", "STANDARD DIRECTION ONE")
+                    .put("content", standardDirections.get(0))
                     .build())
                 .build())
             .add(ImmutableMap.builder()
                 .put("id", "2")
                 .put("value", ImmutableMap.builder()
-                    .put("content", "STANDARD DIRECTION TWO")
+                    .put("content", standardDirections.get(1))
                     .build())
                 .build())
             .build());
@@ -100,5 +105,32 @@ public class StandardDirectionController {
         return AboutToStartOrSubmitCallbackResponse.builder()
             .data(caseDetails.getData())
             .build();
+    }
+
+    private List<String> buildStandardDirections(Map<String, Object> data) {
+        String judgeType = "Local";//(String) data.get("judgeType");
+        String judgeName = "John the Judge";//(String) data.get("judgeName");
+        String personName = "Joe Person Bloggs";//(String) data.get("personName");
+
+        // TODO - MAKE DYNAMIC
+        int numOfStandardDirections = 2;
+
+        String children = "child";
+
+        if (numOfStandardDirections > 1) {
+            children = children + "ren";
+        }
+
+
+        // get standard directions from case data
+        String sd1 = "2. The proceedings are allocated for case management to the "
+            + judgeType + " reserved to " + judgeName + ".";
+        String sd2 = "3. A children’s guardian must be appointed for the "
+            + children + " preferably " + personName + ".";
+
+        List<String> standardDirections = new ArrayList<String>();
+        standardDirections.add(sd1);
+        standardDirections.add(sd2);
+        return standardDirections;
     }
 }
