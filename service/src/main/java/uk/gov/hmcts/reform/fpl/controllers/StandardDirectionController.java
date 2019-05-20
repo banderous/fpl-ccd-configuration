@@ -61,6 +61,8 @@ public class StandardDirectionController {
 
         Map<String, Object> data = caseDetails.getData();
 
+        System.out.println("***case name=" + caseDetails.getData().get("caseName"));
+
         // create standard directions
         List<String> standardDirections = buildStandardDirections(caseDetails.getData());
 
@@ -79,6 +81,8 @@ public class StandardDirectionController {
                 .build())
             .build());
 
+        data.put("caseName", caseDetails.getData().get("caseName"));
+
         System.out.println("END: ************ about to start handler *****************");
 
         return AboutToStartOrSubmitCallbackResponse.builder()
@@ -95,17 +99,23 @@ public class StandardDirectionController {
         System.out.println("START: ********* mid event handler ***************");
         CaseDetails caseDetails = callbackrequest.getCaseDetails();
 
+        System.out.println("1 case name=" + caseDetails.getData().get("caseName"));
+
         byte[] pdf = documentGeneratorService.generateStandardDefPDF(caseDetails,
             Pair.of("userFullName", userDetailsService.getUserName(authorization))
         );
 
-        Document document = uploadDocumentService.uploadPDF(userId, authorization, pdf, buildFileName(caseDetails));
+        System.out.println("2 case name=" + caseDetails.getData().get("caseName"));
+        String fileName = buildFileName(caseDetails);
+        System.out.println("filename=" + fileName);
+
+        Document document = uploadDocumentService.uploadPDF(userId, authorization, pdf, fileName);
 
         Map<String, Object> data = caseDetails.getData();
         data.put("standardDirectionDocument", ImmutableMap.<String, String>builder()
             .put("document_url", document.links.self.href)
             .put("document_binary_url", document.links.binary.href)
-            .put("document_filename", document.originalDocumentName)
+            .put("document_filename", fileName)
             .build());
 
         System.out.println("END: ************ mid event handler *****************");
