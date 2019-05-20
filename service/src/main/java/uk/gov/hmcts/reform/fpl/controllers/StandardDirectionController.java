@@ -15,7 +15,6 @@ import uk.gov.hmcts.reform.ccd.client.model.AboutToStartOrSubmitCallbackResponse
 import uk.gov.hmcts.reform.ccd.client.model.CallbackRequest;
 import uk.gov.hmcts.reform.ccd.client.model.CaseDetails;
 import uk.gov.hmcts.reform.document.domain.Document;
-import uk.gov.hmcts.reform.fpl.events.SubmittedCaseEvent;
 import uk.gov.hmcts.reform.fpl.service.DocumentGeneratorService;
 import uk.gov.hmcts.reform.fpl.service.UploadDocumentService;
 import uk.gov.hmcts.reform.fpl.service.UserDetailsService;
@@ -92,20 +91,17 @@ public class StandardDirectionController {
 
     @PostMapping("/mid-event")
     public AboutToStartOrSubmitCallbackResponse handleMidEvent(@RequestHeader(value = "authorization")
-                                                                       String authorization,
+                                                                   String authorization,
                                                                @RequestHeader(value = "user-id") String userId,
                                                                @RequestBody CallbackRequest callbackrequest) {
 
         System.out.println("START: ********* mid event handler ***************");
         CaseDetails caseDetails = callbackrequest.getCaseDetails();
 
-        System.out.println("1 case name=" + caseDetails.getData().get("caseName"));
-
         byte[] pdf = documentGeneratorService.generateStandardDefPDF(caseDetails,
             Pair.of("userFullName", userDetailsService.getUserName(authorization))
         );
 
-        System.out.println("2 case name=" + caseDetails.getData().get("caseName"));
         String fileName = buildFileName(caseDetails);
         System.out.println("filename=" + fileName);
 
@@ -115,7 +111,7 @@ public class StandardDirectionController {
         data.put("standardDirectionDocument", ImmutableMap.<String, String>builder()
             .put("document_url", document.links.self.href)
             .put("document_binary_url", document.links.binary.href)
-            .put("document_filename", fileName)
+            .put("document_filename", "generatedStandardDirectionPDF")
             .build());
 
         System.out.println("END: ************ mid event handler *****************");
