@@ -60,8 +60,6 @@ public class StandardDirectionController {
 
         Map<String, Object> data = caseDetails.getData();
 
-        System.out.println("***case name=" + caseDetails.getData().get("caseName"));
-
         // create standard directions
         List<String> standardDirections = buildStandardDirections(caseDetails.getData());
 
@@ -79,8 +77,6 @@ public class StandardDirectionController {
                     .build())
                 .build())
             .build());
-
-        data.put("caseName", caseDetails.getData().get("caseName"));
 
         System.out.println("END: ************ about to start handler *****************");
 
@@ -103,7 +99,6 @@ public class StandardDirectionController {
         );
 
         String fileName = buildFileName(caseDetails);
-        System.out.println("filename=" + fileName);
 
         Document document = uploadDocumentService.uploadPDF(userId, authorization, pdf, fileName);
 
