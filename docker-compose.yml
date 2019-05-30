@@ -1,5 +1,10 @@
 version: '2.1'
 services:
+  camunda:
+    container_name: camunda
+    image: camunda/camunda-bpm-platform:latest
+    ports:
+      - "8080:8080"
   fpl-service:
     build:
       context: .

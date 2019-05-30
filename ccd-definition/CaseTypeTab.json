@@ -258,5 +258,15 @@
     "TabDisplayOrder": 4,
     "CaseFieldID": "courtBundle",
     "TabFieldDisplayOrder": 10
+  },
+  {
+    "LiveFrom": "01/01/2017",
+    "CaseTypeID": "CARE_SUPERVISION_EPO",
+    "Channel": "CaseWorker",
+    "TabID": "StandardDirectionsTab",
+    "TabLabel": "Standard Directions",
+    "TabDisplayOrder": 5,
+    "CaseFieldID": "task",
+    "TabFieldDisplayOrder": 1
   }
 ]

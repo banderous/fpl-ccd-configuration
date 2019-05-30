@@ -1414,5 +1414,45 @@
     "FieldType": "Document",
     "ElementLabel": "Upload a file",
     "SecurityClassification": "Public"
+  },
+  {
+    "LiveFrom": "01/01/2017",
+    "ID": "Task",
+    "ListElementCode": "taskTitle",
+    "FieldType": "Text",
+    "ElementLabel": "Task Title",
+    "SecurityClassification": "Public"
+  },
+  {
+    "LiveFrom": "01/01/2017",
+    "ID": "Task",
+    "ListElementCode": "assignee",
+    "FieldType": "Text",
+    "ElementLabel": "Assignee",
+    "SecurityClassification": "Public"
+  },
+  {
+    "LiveFrom": "01/01/2017",
+    "ID": "Task",
+    "ListElementCode": "status",
+    "FieldType": "Text",
+    "ElementLabel": "Task status",
+    "SecurityClassification": "Public"
+  },
+  {
+    "LiveFrom": "01/01/2017",
+    "ID": "Task",
+    "ListElementCode": "dueDate",
+    "FieldType": "Text",
+    "ElementLabel": "Due Date",
+    "SecurityClassification": "Public"
+  },
+  {
+    "LiveFrom": "01/01/2017",
+    "ID": "Task",
+    "ListElementCode": "emailDate",
+    "FieldType": "Text",
+    "ElementLabel": "Follow Up Date",
+    "SecurityClassification": "Public"
   }
 ]
