@@ -9,19 +9,16 @@ import lombok.Data;
 @Builder
 public class Task {
     private final Variable taskTitle;
-    private final Variable assignee;
     private final Variable dueDate;
     private final Variable emailDate;
     private final Variable status;
 
     @JsonCreator
     public Task(@JsonProperty("taskTitle") final Variable taskTitle,
-                @JsonProperty("assignee") final Variable assignee,
                 @JsonProperty("dueDate") final Variable dueDate,
                 @JsonProperty("emailDate") final Variable emailDate,
                 @JsonProperty("status") final Variable status) {
         this.taskTitle = taskTitle;
-        this.assignee = assignee;
         this.dueDate = dueDate;
         this.emailDate = emailDate;
         this.status = status;

@@ -48,13 +48,15 @@ public class Application {
             .build();
 
         // subscribe to the topic
-        client.subscribe("javaClassTest")
+        client.subscribe("taskAssigned")
             .lockDuration(1000)
             .handler((externalTask, externalTaskService) -> {
-                System.out.println("externalTask = " + externalTask);
+                System.out.println("externalTask = " + externalTask.getAllVariables());
 
                 String email = externalTask.getAllVariables().get("assignee").toString();
-                String taskTitle = externalTask.getAllVariables().get("taskTitle").toString();
+                String taskTitle = externalTask.getAllVariables().get("task").toString();
+
+                System.out.println("****************************** taskTitle = " + taskTitle);
 
                 NotificationClient notificationClient = new NotificationClient(NOTIFY_API_KEY);
 
@@ -85,6 +87,8 @@ public class Application {
 
                 CoreCaseDataApi caseDataApi = appContext.getBean(CoreCaseDataApi.class);
                 AuthTokenGenerator authTokenGenerator = appContext.getBean(AuthTokenGenerator.class);
+
+                System.out.println("authTokenGenerator = " + authTokenGenerator.generate());
 
                 // start event
                 StartEventResponse startEventResponse = caseDataApi.startEventForCaseWorker(
@@ -137,9 +141,7 @@ public class Application {
                 int instancesBefore =
                     Integer.parseInt(externalTask.getAllVariables().get("nrOfActiveInstances").toString());
 
-                System.out.println("instances = " + instancesBefore);
-
-                if (instancesBefore == 0) {
+                if (instancesBefore == 1) {
                     System.out.println("STANDARD DIRECTIONS COMPLETE");
                 }
 
@@ -160,10 +162,18 @@ public class Application {
                 // complete the external task
                 externalTaskService.complete(externalTask);
 
-                int instancesAfter =
-                    Integer.parseInt(externalTask.getAllVariables().get("nrOfActiveInstances").toString());
+                System.out.println("The External Task " + externalTask.getId() + " has been completed!");
 
-                System.out.println("instancesAfter = " + instancesAfter);
+            }).open();
+
+        client.subscribe("intervention")
+            .lockDuration(1000)
+            .handler((externalTask, externalTaskService) -> {
+                System.out.println("externalTask = " + externalTask.getAllVariables());
+
+                System.out.println("STANDARD DIRECTIONS ACCEPTED AS IS");
+
+                externalTaskService.complete(externalTask);
 
                 System.out.println("The External Task " + externalTask.getId() + " has been completed!");
 

@@ -30,10 +30,6 @@ public class TaskService {
                     "value", caseId,
                     "type", "String"
                 ))
-                .put("assignee", ImmutableMap.of(
-                    "value", "",
-                    "type", "String"
-                ))
                 .put("authorization", ImmutableMap.of(
                     "value", authorization,
                     "type", "String"
