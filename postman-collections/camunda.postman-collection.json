@@ -1,0 +1,501 @@
+{
+	"info": {
+		"_postman_id": "fc03f663-76a5-4ab8-a698-f5f0bce9dc08",
+		"name": "Camunda",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "TASK",
+			"item": [
+				{
+					"name": "GET TASKS",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/engine-rest/task",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"engine-rest",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE TASK",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"newTask\",\n  \"name\": \"My Task\",\n  \"description\": \"This have to be done very urgent\",\n  \"priority\" : 30,\n  \"assignee\" : null,\n  \"owner\" : null,\n  \"delegationState\" : \"PENDING\",\n  \"due\" : \"2014-08-30T10:00:00.000+0200\",\n  \"followUp\" : \"2014-08-25T10:00:00.000+0200\",\n  \"parentTaskId\" : null,\n  \"caseInstanceId\" : null,\n  \"tenantId\" : null\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/engine-rest/task/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"engine-rest",
+								"task",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ASSIGN USER TO TASK",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userId\": \"familypubliclaw@gmail.com\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/engine-rest/task/7fd9f72d-78b7-11e9-9717-0242c0a85002/assignee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"engine-rest",
+								"task",
+								"7fd9f72d-78b7-11e9-9717-0242c0a85002",
+								"assignee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE TASK VARIABLES",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"modifications\": {\n  \t\"assignee\": { \n    \t\"value\": \"familypubliclaw@gmail.com\", \n    \t\"type\": \"String\"\n  \t\t},\n    \"assigned\": { \n    \t\"value\": false, \n    \t\"type\": \"boolean\" \n    \t},\n    \"intervention\": { \n    \t\"value\": true, \n    \t\"type\": \"boolean\" \n    \t}\n    }\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/engine-rest/task/ef1ab66a-860e-11e9-a698-0242ac1e0002/variables",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"engine-rest",
+								"task",
+								"ef1ab66a-860e-11e9-a698-0242ac1e0002",
+								"variables"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "COMPLETE TASK",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/engine-rest/task/6b5ec929-77c4-11e9-b90d-0242ac1c0002 /complete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"engine-rest",
+								"task",
+								"6b5ec929-77c4-11e9-b90d-0242ac1c0002 ",
+								"complete"
+							]
+						},
+						"description": "Completes a task for a given id"
+					},
+					"response": []
+				},
+				{
+					"name": "GET TASK VARIABLES",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/engine-rest/task/ef1ab66a-860e-11e9-a698-0242ac1e0002/variables",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"engine-rest",
+								"task",
+								"ef1ab66a-860e-11e9-a698-0242ac1e0002",
+								"variables"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GET PROCESS DEFINITION",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/engine-rest/process-definition",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"engine-rest",
+						"process-definition"
+					]
+				},
+				"description": "Gets all instantiated definitions"
+			},
+			"response": []
+		},
+		{
+			"name": "START PROCESS INSTANCE",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"variables\": {\n\t\t\"assignee\": {\n\t\t\t\"value\": \"familypubliclaw@gmail.com\",\n\t\t\t\"type\": \"String\"\n\t\t},\n\t\t\"taskTitle\": {\n\t\t\t\"value\": \"Example Task\",\n\t\t\t\"type\": \"String\"\n\t\t},\n\t\t\"dueDate\": {\n\t\t\t\"value\": \"2019-05-21T15:58:38.367Z\",\n\t\t\t\"type\": \"String\"\n\t\t},\n\t\t\"emailDate\": {\n\t\t\t\"value\": \"2019-05-20T15:58:38.367Z\",\n\t\t\t\"type\": \"String\"\n\t\t},\n\t\t\"tasks\": {\n\t\t\t\"value\": \"[\\\"firstTask\\\", \\\"secondTask\\\"]\",\n\t\t\t\"type\": \"Object\",\n\t\t\t\"valueInfo\": {\n\t\t\t\t\"objectTypeName\": \"java.util.ArrayList\",\n\t\t\t\t\"serializationDataFormat\": \"application/json\"\n\t\t\t}\n\t\t}\n\t}\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/engine-rest/process-definition/standard_direction_task:1:664d43f0-7d3c-11e9-b2c2-0242c0a8a002/start",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"engine-rest",
+						"process-definition",
+						"standard_direction_task:1:664d43f0-7d3c-11e9-b2c2-0242c0a8a002",
+						"start"
+					]
+				},
+				"description": "Starts and instance of an instantiated process definition\n\nexample date: 2019-05-21T15:58:38.367Z"
+			},
+			"response": []
+		},
+		{
+			"name": "GET PROCESS INSTANCE",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/engine-rest/process-instance",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"engine-rest",
+						"process-instance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ACTIVITY INSTANCES WITHIN PROCESS INSTANCE",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/engine-rest/process-instance/2574cf39-7d3d-11e9-b2c2-0242c0a8a002/activity-instances",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"engine-rest",
+						"process-instance",
+						"2574cf39-7d3d-11e9-b2c2-0242c0a8a002",
+						"activity-instances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET EXTERNAL TASK",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"processInstanceId\":\"05624ab2-7179-11e9-b595-0242ac190002\",\n  \"sorting\": {\n  \t\"sortBy\": \"priority\",\n    \"sortOrder\": \"desc\"\n  }\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:8080/engine-rest/external-task",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"engine-rest",
+						"external-task"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FETCH AND LOCK EXTERNAL TASK",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"workerId\":\"aWorkerId\",\n  \"maxTasks\": 1\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/engine-rest/external-task/fetchAndLock",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"engine-rest",
+						"external-task",
+						"fetchAndLock"
+					]
+				},
+				"description": "Assigns an external task to a user"
+			},
+			"response": []
+		},
+		{
+			"name": "COMPLETE EXTERNAL TASK",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/engine-rest/external-task/0562e6f6-7179-11e9-b595-0242ac190002/complete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"engine-rest",
+						"external-task",
+						"0562e6f6-7179-11e9-b595-0242ac190002",
+						"complete"
+					]
+				},
+				"description": "Marks an external task as complete"
+			},
+			"response": []
+		},
+		{
+			"name": "GET VARIABLES FOR PROCESS INSTANCE",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/engine-rest/execution/5a0729f7-8608-11e9-94be-0242ac1c0002/localVariables",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"engine-rest",
+						"execution",
+						"5a0729f7-8608-11e9-94be-0242ac1c0002",
+						"localVariables"
+					]
+				},
+				"description": "Retrieves the local variables stored in a process instance"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Local Variable",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"value\": \"Complete\",\n\t\"type\": \"String\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/engine-rest/execution/b12c29fe-7719-11e9-bda8-0242ac190002/localVariables/status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"engine-rest",
+						"execution",
+						"b12c29fe-7719-11e9-bda8-0242ac190002",
+						"localVariables",
+						"status"
+					]
+				},
+				"description": "Used to update status from Incomplete to Complete"
+			},
+			"response": []
+		}
+	]
+}
