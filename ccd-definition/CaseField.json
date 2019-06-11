@@ -334,5 +334,13 @@
     "FieldType": "Collection",
     "FieldTypeParameter": "Task",
     "SecurityClassification": "Public"
+  },
+  {
+    "LiveFrom": "01/01/2017",
+    "CaseTypeID": "CARE_SUPERVISION_EPO",
+    "ID": "orderCompletion",
+    "Label": "Tasks Completion",
+    "FieldType": "Text",
+    "SecurityClassification": "Public"
   }
 ]

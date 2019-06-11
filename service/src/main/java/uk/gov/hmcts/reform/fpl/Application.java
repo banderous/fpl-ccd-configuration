@@ -30,8 +30,6 @@ import static uk.gov.hmcts.reform.fpl.NotifyTemplates.CAMUNDA_POC_TEMPLATE;
 public class Application {
 
     private static String NOTIFY_API_KEY;
-    private static CoreCaseDataApi caseDataApi;
-    private static AuthTokenGenerator authTokenGenerator;
 
     @Value("${NOTIFY_API_KEY}")
     public void setNotifyApiKey(String notifyApiKey) {
@@ -51,12 +49,8 @@ public class Application {
         client.subscribe("taskAssigned")
             .lockDuration(1000)
             .handler((externalTask, externalTaskService) -> {
-                System.out.println("externalTask = " + externalTask.getAllVariables());
-
                 String email = externalTask.getAllVariables().get("assignee").toString();
                 String taskTitle = externalTask.getAllVariables().get("task").toString();
-
-                System.out.println("****************************** taskTitle = " + taskTitle);
 
                 NotificationClient notificationClient = new NotificationClient(NOTIFY_API_KEY);
 
@@ -79,16 +73,12 @@ public class Application {
         client.subscribe("taskCompleted")
             .lockDuration(1000)
             .handler((externalTask, externalTaskService) -> {
-                System.out.println("externalTask = " + externalTask.getAllVariables());
-
                 String authorization = externalTask.getAllVariables().get("authorization").toString();
                 String userId = externalTask.getAllVariables().get("creatorId").toString();
                 String caseId = externalTask.getAllVariables().get("caseId").toString();
 
                 CoreCaseDataApi caseDataApi = appContext.getBean(CoreCaseDataApi.class);
                 AuthTokenGenerator authTokenGenerator = appContext.getBean(AuthTokenGenerator.class);
-
-                System.out.println("authTokenGenerator = " + authTokenGenerator.generate());
 
                 // start event
                 StartEventResponse startEventResponse = caseDataApi.startEventForCaseWorker(
@@ -141,19 +131,32 @@ public class Application {
                 int instancesBefore =
                     Integer.parseInt(externalTask.getAllVariables().get("nrOfActiveInstances").toString());
 
+                System.out.println("instancesBefore = " + instancesBefore);
+
+                CaseDataContent caseData;
+
                 if (instancesBefore == 1) {
-                    System.out.println("STANDARD DIRECTIONS COMPLETE");
+                    caseData = CaseDataContent.builder()
+                        .eventToken(startEventResponse.getToken())
+                        .event(Event.builder()
+                            .id(startEventResponse.getEventId())
+                            .build())
+                        .data(ImmutableMap.of(
+                            "orderCompletion", "Complete",
+                            "task", taskObjects))
+                        .build();
+
+                    System.out.println("caseData = " + caseData);
+
+                } else {
+                    caseData = CaseDataContent.builder()
+                        .eventToken(startEventResponse.getToken())
+                        .event(Event.builder()
+                            .id(startEventResponse.getEventId())
+                            .build())
+                        .data(ImmutableMap.of("task", taskObjects))
+                        .build();
                 }
-
-                ////
-
-                CaseDataContent caseData = CaseDataContent.builder()
-                    .eventToken(startEventResponse.getToken())
-                    .event(Event.builder()
-                        .id(startEventResponse.getEventId())
-                        .build())
-                    .data(ImmutableMap.of("task", taskObjects))
-                    .build();
 
                 caseDataApi.submitEventForCaseWorker(
                     authorization, authTokenGenerator.generate(), userId, "PUBLICLAW",

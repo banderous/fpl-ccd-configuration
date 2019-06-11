@@ -69,14 +69,15 @@ public class CreateTaskController {
                 newTasks.add(ImmutableMap.of(
                     "value", CCDTask.builder()
                         .assignee("")
-                        .taskTitle(title)
-                        .dueDate(startInstanceResponse.getVariables().getEmailDate().getValue())
-                        .emailDate(startInstanceResponse.getVariables().getDueDate().getValue())
+                        .taskTitle(title.replace("\"", ""))
+                        .dueDate(startInstanceResponse.getVariables().getDueDate().getValue())
+                        .emailDate(startInstanceResponse.getVariables().getEmailDate().getValue())
                         .status(startInstanceResponse.getVariables().getStatus().getValue())
                         .build()))
             );
 
             data.put("task", newTasks);
+            data.put("orderCompletion", "Incomplete");
         }
 
         return AboutToStartOrSubmitCallbackResponse.builder()
