@@ -376,5 +376,22 @@
     "FieldType": "MultiSelectList",
     "FieldTypeParameter": "DeletionConsent",
     "SecurityClassification": "Public"
+  },
+  {
+    "LiveFrom": "01/01/2017",
+    "CaseTypeID": "CARE_SUPERVISION_EPO",
+    "ID": "cmo",
+    "Label": "CMO",
+    "FieldType": "Collection",
+    "FieldTypeParameter": "Directions",
+    "SecurityClassification": "Public"
+  },
+  {
+    "LiveFrom": "01/01/2017",
+    "CaseTypeID": "CARE_SUPERVISION_EPO",
+    "ID": "cafcassDirections",
+    "Label": "Cafcass Directions",
+    "FieldType": "CafcassDirections",
+    "SecurityClassification": "Public"
   }
 ]

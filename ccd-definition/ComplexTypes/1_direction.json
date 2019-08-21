@@ -1,0 +1,26 @@
+[
+  {
+    "LiveFrom": "01/01/2017",
+    "ID": "Direction",
+    "ListElementCode": "title",
+    "FieldType": "Text",
+    "ElementLabel": "Direction",
+    "SecurityClassification": "Public"
+  },
+  {
+    "LiveFrom": "01/01/2017",
+    "ID": "Direction",
+    "ListElementCode": "assignee",
+    "FieldType": "Text",
+    "ElementLabel": "Assignee",
+    "SecurityClassification": "Public"
+  },
+  {
+    "LiveFrom": "01/01/2017",
+    "ID": "Direction",
+    "ListElementCode": "status",
+    "FieldType": "YesOrNo",
+    "ElementLabel": "Has the direction been completed?",
+    "SecurityClassification": "Public"
+  }
+]

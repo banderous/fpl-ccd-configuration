@@ -1,0 +1,19 @@
+[
+  {
+    "LiveFrom": "01/01/2017",
+    "ID": "Directions",
+    "ListElementCode": "directions",
+    "FieldType": "Collection",
+    "ElementLabel": "Directions",
+    "FieldTypeParameter": "Direction",
+    "SecurityClassification": "Public"
+  },
+  {
+    "LiveFrom": "01/01/2017",
+    "ID": "Directions",
+    "ListElementCode": "finished",
+    "FieldType": "YesOrNo",
+    "ElementLabel": "Has the CMO been completed?",
+    "SecurityClassification": "Public"
+  }
+]
