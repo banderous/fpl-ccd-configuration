@@ -513,5 +513,17 @@
     "ID": "PartyType",
     "ListElementCode": "ORGANISATION",
     "ListElement": "Organisation"
+  },
+  {
+    "LiveFrom": "01/01/2017",
+    "ID": "DirectionAssignees",
+    "ListElementCode": "localAuthorityDirections",
+    "ListElement": "Local Authority"
+  },
+  {
+    "LiveFrom": "01/01/2017",
+    "ID": "DirectionAssignees",
+    "ListElementCode": "cafcassDirections",
+    "ListElement": "Cafcass"
   }
 ]

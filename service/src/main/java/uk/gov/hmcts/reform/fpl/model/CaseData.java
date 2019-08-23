@@ -12,5 +12,7 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class CaseData {
     private final List<Element<Applicant>> applicants;
-    private final List<Element<Directions>> cmo;
+    private final List<Element<Direction>> directions;
+    private final CMO cmo;
+    private final List<Element<CMO>> cmoCollection;
 }

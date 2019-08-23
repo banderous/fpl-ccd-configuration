@@ -2,7 +2,6 @@ package uk.gov.hmcts.reform.fpl.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
 import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,13 +10,17 @@ import org.springframework.web.bind.annotation.RestController;
 import uk.gov.hmcts.reform.ccd.client.model.AboutToStartOrSubmitCallbackResponse;
 import uk.gov.hmcts.reform.ccd.client.model.CallbackRequest;
 import uk.gov.hmcts.reform.ccd.client.model.CaseDetails;
+import uk.gov.hmcts.reform.fpl.model.CMO;
 import uk.gov.hmcts.reform.fpl.model.CaseData;
 import uk.gov.hmcts.reform.fpl.model.Direction;
-import uk.gov.hmcts.reform.fpl.model.Directions;
 import uk.gov.hmcts.reform.fpl.model.common.Element;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
+
+import static java.util.stream.Collectors.groupingBy;
+import static org.springframework.util.ObjectUtils.isEmpty;
 
 @Api
 @RestController
@@ -34,17 +37,17 @@ public class DraftController {
     public AboutToStartOrSubmitCallbackResponse handleAboutToStart(@RequestBody CallbackRequest callbackrequest) {
         CaseDetails caseDetails = callbackrequest.getCaseDetails();
 
+        //pre populate standard directions
         List<Element<Direction>> directions = ImmutableList.of(
             Element.<Direction>builder()
                 .id(UUID.randomUUID())
                 .value(Direction.builder()
                     .title("Arrange an advocates' meeting")
-                    .assignee("Cafcass")
+                    .assignee("cafcassDirections")
                     .build())
                 .build());
 
-        caseDetails.getData().put("cmo", ImmutableList.of(Element.builder().value(
-            ImmutableMap.of("directions", directions)).build()));
+        caseDetails.getData().put("cmo", CMO.builder().directions(directions).build());
 
         return AboutToStartOrSubmitCallbackResponse.builder()
             .data(caseDetails.getData())
@@ -56,17 +59,31 @@ public class DraftController {
         CaseDetails caseDetails = callbackrequest.getCaseDetails();
         CaseData caseData = mapper.convertValue(caseDetails.getData(), CaseData.class);
 
-        Directions.DirectionsBuilder cafcassDirections = Directions.builder();
+        // sort directions by role
+        Map<String, List<Element<Direction>>> directionsByRole = caseData.getCmo().getDirections().stream()
+            .collect(groupingBy(direction -> direction.getValue().getAssignee()));
 
-        List<Element<Directions>> cmo = caseData.getCmo();
+        // add directions into their respective pre defined collections
+        caseDetails.getData().putAll(directionsByRole);
 
-        cmo.forEach(x -> {
-            if (x.getValue().getDirections().get(0).getValue().getAssignee().equals("Cafcass")) {
-                cafcassDirections.directions(x.getValue().getDirections()).build();
-            }
-        });
+        // populate CMOs collection of collections
+        if (isEmpty(caseData.getCmoCollection())) {
+            // when empty, add the first thing
+            caseDetails.getData().put("cmoCollection", ImmutableList.of(Element.builder()
+                .value(caseData.getCmo())
+                .build()));
+        } else {
+            // when second CMO, add to list
+            caseData.getCmoCollection().add(0, Element.<CMO>builder()
+                .id(UUID.randomUUID())
+                .value(caseData.getCmo())
+                .build());
 
-        caseDetails.getData().put("cafcassDirections", cafcassDirections.build());
+            caseDetails.getData().put("cmoCollection", caseData.getCmoCollection());
+        }
+
+        // remove old CMO
+        caseDetails.getData().remove("cmo");
 
         return AboutToStartOrSubmitCallbackResponse.builder()
             .data(caseDetails.getData())

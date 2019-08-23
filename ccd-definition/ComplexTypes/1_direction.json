@@ -11,7 +11,8 @@
     "LiveFrom": "01/01/2017",
     "ID": "Direction",
     "ListElementCode": "assignee",
-    "FieldType": "Text",
+    "FieldType": "FixedList",
+    "FieldTypeParameter": "DirectionAssignees",
     "ElementLabel": "Assignee",
     "SecurityClassification": "Public"
   },
