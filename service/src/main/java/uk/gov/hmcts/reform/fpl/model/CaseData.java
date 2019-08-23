@@ -13,6 +13,7 @@ import java.util.List;
 public class CaseData {
     private final List<Element<Applicant>> applicants;
     private final List<Element<Direction>> directions;
+    private final List<Element<Direction>> cafcassDirections;
     private final CMO cmo;
     private final List<Element<CMO>> cmoCollection;
 }
