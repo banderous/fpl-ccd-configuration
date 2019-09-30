@@ -342,6 +342,20 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
+    "ID": "uploadStandardDirectionsGatekeeping",
+    "Name": "Documents",
+    "Description": "Upload standard directions",
+    "DisplayOrder": 3,
+    "PreConditionState(s)": "Gatekeeping",
+    "PostConditionState": "Gatekeeping",
+    "SecurityClassification": "Public",
+    "ShowSummary": "N",
+    "ShowEventNotes": "N",
+    "EndButtonLabel": "Save and continue"
+  },
+  {
+    "LiveFrom": "01/01/2017",
+    "CaseTypeID": "CARE_SUPERVISION_EPO",
     "ID": "sendToGatekeeper",
     "Name": "Send to gatekeeper",
     "Description": "Send email to gatekeeper",
