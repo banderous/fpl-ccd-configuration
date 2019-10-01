@@ -1,42 +1,23 @@
 const config = require('../config.js');
 const recipients = require('../fixtures/recipients.js');
 const uploadDocs = require('../fragments/caseDocuments');
+const setup = require('../fragments/caseSetup');
 
 let caseId;
 
-Feature('Case maintenance after gatekeeping');
+Feature('Case maintenance for Local Authority after gatekeeping');
 
 Before(async (I, caseViewPage, submitApplicationEventPage, sendCaseToGatekeeperEventPage) => {
   if (!caseId) {
-    await I.logInAndCreateCase(config.swanseaLocalAuthorityEmailUserOne, config.localAuthorityPassword);
-    await I.enterMandatoryFields();
-    await caseViewPage.goToNewActions(config.applicationActions.submitCase);
-    submitApplicationEventPage.giveConsent();
-    await I.completeEvent('Submit');
-
-    // eslint-disable-next-line require-atomic-updates
-    caseId = await I.grabTextFrom('.heading-h1');
-    console.log(`Case ${caseId} has been submitted`);
-
-    I.signOut();
-
-    //hmcts login and send to gatekeeper
-    await I.signIn(config.hmctsAdminEmail, config.hmctsAdminPassword);
-    await I.navigateToCaseDetails(caseId);
-    caseViewPage.goToNewActions(config.administrationActions.sendToGatekeeper);
-    sendCaseToGatekeeperEventPage.enterEmail();
-    await I.completeEvent('Save and continue');
-    I.seeEventSubmissionConfirmation(config.administrationActions.sendToGatekeeper);
-    I.signOut();
-
+    caseId = await setup.setupForGateKeeping(I, caseViewPage, submitApplicationEventPage, sendCaseToGatekeeperEventPage);
     await I.signIn(config.swanseaLocalAuthorityEmailUserOne, config.localAuthorityPassword);
   }
   await I.navigateToCaseDetails(caseId);
 });
 
-Scenario('local authority uploads documents', uploadDocs.uploadDocuments);
+Scenario('local authority uploads documents', uploadDocs.uploadDocuments());
 
-Scenario('local authority uploads court bundle', uploadDocs.uploadCourtBundle);
+Scenario('local authority uploads court bundle', uploadDocs.uploadCourtBundle());
 
 Scenario('local authority provides a statements of service', async (I, caseViewPage, loginPage, addStatementOfServiceEventPage) => {
   await caseViewPage.goToNewActions(config.administrationActions.addStatementOfService);

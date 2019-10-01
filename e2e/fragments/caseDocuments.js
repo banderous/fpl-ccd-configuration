@@ -1,8 +1,10 @@
 const config = require('../config.js');
 
 module.exports = {
+
   uploadDocuments() {
     return async (I, caseViewPage, uploadDocumentsEventPage) => {
+      console.log(uploadDocumentsEventPage);
       await caseViewPage.goToNewActions(config.applicationActions.uploadDocuments);
       uploadDocumentsEventPage.selectSocialWorkChronologyToFollow(config.testFile);
       uploadDocumentsEventPage.uploadSocialWorkStatement(config.testFile);
