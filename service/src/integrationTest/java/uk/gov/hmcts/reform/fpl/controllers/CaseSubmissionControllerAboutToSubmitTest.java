@@ -17,11 +17,16 @@ import uk.gov.hmcts.reform.fpl.service.DocumentGeneratorService;
 import uk.gov.hmcts.reform.fpl.service.UploadDocumentService;
 import uk.gov.hmcts.reform.fpl.service.UserDetailsService;
 
+import java.io.IOException;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static uk.gov.hmcts.reform.fpl.controllers.utils.MvcMakeRequestHelper.makeRequest;
+import static uk.gov.hmcts.reform.fpl.enums.PostRequestMappings.ABOUT_TO_SUBMIT;
+import static uk.gov.hmcts.reform.fpl.utils.CoreCaseDataStoreLoader.callbackRequest;
 import static uk.gov.hmcts.reform.fpl.utils.DocumentManagementStoreLoader.document;
 import static uk.gov.hmcts.reform.fpl.utils.ResourceReader.readBytes;
 
@@ -29,7 +34,7 @@ import static uk.gov.hmcts.reform.fpl.utils.ResourceReader.readBytes;
 @WebMvcTest(CaseSubmissionController.class)
 @OverrideAutoConfiguration(enabled = true)
 class CaseSubmissionControllerAboutToSubmitTest {
-
+    private static final String CONTROLLER_URI = "case-submission";
     private static final String AUTH_TOKEN = "Bearer token";
     private static final String USER_ID = "1";
 
@@ -73,26 +78,15 @@ class CaseSubmissionControllerAboutToSubmitTest {
         byte[] pdf = {1, 2, 3, 4, 5};
         Document document = document();
 
-        given(userDetailsService.getUserName(AUTH_TOKEN))
-            .willReturn("Emma Taylor");
-        given(documentGeneratorService.generateSubmittedFormPDF(any(), any()))
-            .willReturn(pdf);
-        given(uploadDocumentService.uploadPDF(USER_ID, AUTH_TOKEN, pdf, "2313.pdf"))
-            .willReturn(document);
+        given(userDetailsService.getUserName(AUTH_TOKEN)).willReturn("Emma Taylor");
 
-        MvcResult response = mockMvc
-            .perform(post("/callback/case-submission/about-to-submit")
-                .header("authorization", AUTH_TOKEN)
-                .header("user-id", USER_ID)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(readBytes("fixtures/case.json")))
-            .andExpect(status().isOk())
-            .andReturn();
+        given(documentGeneratorService.generateSubmittedFormPDF(any(), any())).willReturn(pdf);
 
-        AboutToStartOrSubmitCallbackResponse callbackResponse = mapper.readValue(response.getResponse()
-            .getContentAsByteArray(), AboutToStartOrSubmitCallbackResponse.class);
+        given(uploadDocumentService.uploadPDF(USER_ID, AUTH_TOKEN, pdf, "12345.pdf")).willReturn(document);
 
-        assertThat(callbackResponse.getData())
+        AboutToStartOrSubmitCallbackResponse response = makeRequest(callbackRequest(), CONTROLLER_URI, ABOUT_TO_SUBMIT);
+
+        assertThat(response.getData())
             .containsEntry("caseLocalAuthority", "example")
             .containsEntry("submittedForm", ImmutableMap.<String, String>builder()
                 .put("document_url", document.links.self.href)

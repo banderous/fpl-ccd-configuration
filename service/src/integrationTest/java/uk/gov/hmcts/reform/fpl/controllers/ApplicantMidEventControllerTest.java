@@ -9,10 +9,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.OverrideAutoConfiguration;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
 import uk.gov.hmcts.reform.ccd.client.model.AboutToStartOrSubmitCallbackResponse;
 import uk.gov.hmcts.reform.ccd.client.model.CallbackRequest;
 import uk.gov.hmcts.reform.ccd.client.model.CaseDetails;
@@ -24,29 +21,31 @@ import uk.gov.hmcts.reform.fpl.model.common.Element;
 import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static uk.gov.hmcts.reform.fpl.controllers.utils.MvcMakeRequestHelper.makeRequest;
+import static uk.gov.hmcts.reform.fpl.enums.PostRequestMappings.MID__EVENT;
 
 @ActiveProfiles("integration-test")
 @WebMvcTest(ApplicantController.class)
 @OverrideAutoConfiguration(enabled = true)
 class ApplicantMidEventControllerTest {
-    private static final String AUTH_TOKEN = "Bearer token";
-    private static final String USER_ID = "1";
+    private static final String CONTROLLER_URI = "enter-applicant";
     private static final String ERROR_MESSAGE = "Payment by account (PBA) number must include 7 numbers";
-
-    @Autowired
-    private MockMvc mockMvc;
 
     @Autowired
     private ObjectMapper objectMapper;
 
     @ParameterizedTest
-    @ValueSource(strings = {"1234567", "pba1234567", "PBA1234567" })
+    @ValueSource(strings = {"1234567", "pba1234567", "PBA1234567"})
     void shouldReturnNoErrorsWhenValidPbaNumber(String input) throws Exception {
         CallbackRequest request = getCallbackRequest(input);
 
-        assertPbaNumberIsAsExpected(request);
+        AboutToStartOrSubmitCallbackResponse response = makeRequest(request, CONTROLLER_URI, MID__EVENT);
+
+        assertThat(response.getErrors()).doesNotContain(ERROR_MESSAGE);
+
+        CaseData caseData = objectMapper.convertValue(response.getData(), CaseData.class);
+
+        assertThat(caseData.getApplicants().get(0).getValue().getParty().getPbaNumber()).isEqualTo("PBA1234567");
     }
 
     @ParameterizedTest
@@ -54,10 +53,9 @@ class ApplicantMidEventControllerTest {
     void shouldReturnErrorsWhenThereIsInvalidPbaNumber(String input) throws Exception {
         CallbackRequest request = getCallbackRequest(input);
 
-        AboutToStartOrSubmitCallbackResponse callbackResponse = objectMapper.readValue(
-            makeRequest(request).getResponse().getContentAsByteArray(), AboutToStartOrSubmitCallbackResponse.class);
+        AboutToStartOrSubmitCallbackResponse response = makeRequest(request, CONTROLLER_URI, MID__EVENT);
 
-        assertThat(callbackResponse.getErrors()).contains(ERROR_MESSAGE);
+        assertThat(response.getErrors()).contains(ERROR_MESSAGE);
     }
 
     @Test
@@ -74,10 +72,9 @@ class ApplicantMidEventControllerTest {
                 .build())
             .build();
 
-        AboutToStartOrSubmitCallbackResponse callbackResponse = objectMapper.readValue(
-            makeRequest(request).getResponse().getContentAsByteArray(), AboutToStartOrSubmitCallbackResponse.class);
+        AboutToStartOrSubmitCallbackResponse response = makeRequest(request, CONTROLLER_URI, MID__EVENT);
 
-        assertThat(callbackResponse.getErrors()).doesNotContain(ERROR_MESSAGE);
+        assertThat(response.getErrors()).doesNotContain(ERROR_MESSAGE);
     }
 
     private CallbackRequest getCallbackRequest(String input) {
@@ -94,29 +91,5 @@ class ApplicantMidEventControllerTest {
                     .build())))
                 .build())
             .build();
-    }
-
-    private MvcResult makeRequest(CallbackRequest request) throws Exception {
-        return mockMvc
-            .perform(post("/callback/enter-applicant/mid-event")
-                .header("authorization", AUTH_TOKEN)
-                .header("user-id", USER_ID)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(request)))
-            .andExpect(status().isOk())
-            .andReturn();
-    }
-
-    private void assertPbaNumberIsAsExpected(CallbackRequest request) throws Exception {
-        MvcResult response = makeRequest(request);
-
-        AboutToStartOrSubmitCallbackResponse callbackResponse = objectMapper.readValue(response.getResponse()
-            .getContentAsByteArray(), AboutToStartOrSubmitCallbackResponse.class);
-
-        assertThat(callbackResponse.getErrors()).doesNotContain(ERROR_MESSAGE);
-
-        CaseData caseData = objectMapper.convertValue(callbackResponse.getData(), CaseData.class);
-
-        assertThat(caseData.getApplicants().get(0).getValue().getParty().getPbaNumber()).isEqualTo("PBA1234567");
     }
 }

@@ -6,10 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.OverrideAutoConfiguration;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
 import uk.gov.hmcts.reform.ccd.client.model.AboutToStartOrSubmitCallbackResponse;
 import uk.gov.hmcts.reform.ccd.client.model.CallbackRequest;
 import uk.gov.hmcts.reform.ccd.client.model.CaseDetails;
@@ -18,25 +15,21 @@ import uk.gov.hmcts.reform.fpl.model.AllocationProposal;
 import uk.gov.hmcts.reform.fpl.model.CaseData;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static uk.gov.hmcts.reform.fpl.controllers.utils.MvcMakeRequestHelper.makeRequest;
+import static uk.gov.hmcts.reform.fpl.enums.PostRequestMappings.ABOUT_TO_START;
+import static uk.gov.hmcts.reform.fpl.enums.PostRequestMappings.ABOUT_TO_SUBMIT;
 
 @ActiveProfiles("integration-test")
 @WebMvcTest(AllocationDecisionController.class)
 @OverrideAutoConfiguration(enabled = true)
 class AllocationDecisionControllerAboutToStartTest {
-
-    private static final String AUTH_TOKEN = "Bearer token";
-
-    @Autowired
-    private  ObjectMapper mapper;
+    private static final String CONTROLLER_URI = "allocation-decision";
 
     @Autowired
-    private MockMvc mockMvc;
+    private ObjectMapper mapper;
 
     @Test
     void shouldAddYesToMissingAllocationDecision() throws Exception {
-
         AllocationDecision currentAllocationDecision = AllocationDecision.builder()
             .proposal("test")
             .proposalReason("decision reason")
@@ -53,7 +46,7 @@ class AllocationDecisionControllerAboutToStartTest {
                 .build()).build())
             .build();
 
-        AboutToStartOrSubmitCallbackResponse response = callbackResponse(request);
+        AboutToStartOrSubmitCallbackResponse response = makeRequest(request, CONTROLLER_URI, ABOUT_TO_START);
 
         AllocationDecision expectedDecision = AllocationDecision.builder()
             .proposal("test")
@@ -69,32 +62,15 @@ class AllocationDecisionControllerAboutToStartTest {
 
     @Test
     void shouldAddNoToMissingAllocationDecision() throws Exception {
-
         CallbackRequest request = CallbackRequest.builder().caseDetails(CaseDetails.builder()
             .data(ImmutableMap.<String, Object>builder()
                 .build()).build())
             .build();
 
-        AboutToStartOrSubmitCallbackResponse response = callbackResponse(request);
+        AboutToStartOrSubmitCallbackResponse response = makeRequest(request, CONTROLLER_URI, ABOUT_TO_START);
 
         CaseData caseData = mapper.convertValue(response.getData(), CaseData.class);
         assertThat(caseData.getAllocationDecision().getAllocationProposalPresent())
             .isEqualTo("No");
-    }
-
-    private AboutToStartOrSubmitCallbackResponse callbackResponse(CallbackRequest request) throws Exception {
-
-        MvcResult response = mockMvc
-            .perform(post("/callback/allocation-decision/about-to-start")
-                .header("authorization", AUTH_TOKEN)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(mapper.writeValueAsString(request)))
-            .andExpect(status().isOk())
-            .andReturn();
-
-        AboutToStartOrSubmitCallbackResponse callbackResponse = mapper.readValue(response.getResponse()
-            .getContentAsByteArray(), AboutToStartOrSubmitCallbackResponse.class);
-
-        return callbackResponse;
     }
 }

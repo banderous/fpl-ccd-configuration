@@ -11,7 +11,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
 import uk.gov.hmcts.reform.authorisation.ServiceAuthorisationApi;
 import uk.gov.hmcts.reform.ccd.client.CaseAccessApi;
 import uk.gov.hmcts.reform.ccd.client.model.AboutToStartOrSubmitCallbackResponse;
@@ -33,17 +32,20 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static uk.gov.hmcts.reform.fpl.CaseDefinitionConstants.CASE_TYPE;
 import static uk.gov.hmcts.reform.fpl.CaseDefinitionConstants.JURISDICTION;
 import static uk.gov.hmcts.reform.fpl.Constants.SERVICE_AUTH_TOKEN;
-import static uk.gov.hmcts.reform.fpl.utils.ResourceReader.readBytes;
+import static uk.gov.hmcts.reform.fpl.controllers.utils.MvcMakeRequestHelper.makeRequest;
+import static uk.gov.hmcts.reform.fpl.enums.PostRequestMappings.ABOUT_TO_SUBMIT;
 
 @ActiveProfiles("integration-test")
 @WebMvcTest(CaseInitiationController.class)
 @OverrideAutoConfiguration(enabled = true)
 class CaseInitiationControllerTest {
-
+    private static final String CONTROLLER_URI = "case-initiation";
     private static final String AUTH_TOKEN = "Bearer token";
     private static final String USER_ID = "10";
     private static final String CASE_ID = "1";
-    private static final ObjectMapper MAPPER = new ObjectMapper();
+
+    @Autowired
+    private ObjectMapper mapper;
 
     @Autowired
     private MockMvc mockMvc;
@@ -68,18 +70,9 @@ class CaseInitiationControllerTest {
                 .build()).build())
             .build();
 
-        MvcResult response = mockMvc
-            .perform(post("/callback/case-initiation/about-to-submit")
-                .header("authorization", AUTH_TOKEN)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(MAPPER.writeValueAsString(request)))
-            .andExpect(status().isOk())
-            .andReturn();
+        AboutToStartOrSubmitCallbackResponse response = makeRequest(request, CONTROLLER_URI, ABOUT_TO_SUBMIT);
 
-        AboutToStartOrSubmitCallbackResponse callbackResponse = MAPPER.readValue(response.getResponse()
-            .getContentAsByteArray(), AboutToStartOrSubmitCallbackResponse.class);
-
-        assertThat(callbackResponse.getData())
+        assertThat(response.getData())
             .containsEntry("caseName", "title")
             .containsEntry("caseLocalAuthority", "example");
     }
@@ -95,42 +88,18 @@ class CaseInitiationControllerTest {
         given(idamApi.retrieveUserDetails(AUTH_TOKEN))
             .willReturn(new UserDetails(null, "user@email.gov.uk", null, null, null));
 
-        MvcResult response = mockMvc
-            .perform(post("/callback/case-initiation/about-to-submit")
-                .header("authorization", AUTH_TOKEN)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(readBytes("core-case-data-store-api/empty-case-details.json")))
-            .andExpect(status().isOk())
-            .andReturn();
+        AboutToStartOrSubmitCallbackResponse response = makeRequest(
+            CallbackRequest.builder().build(), CONTROLLER_URI, ABOUT_TO_SUBMIT);
 
-        assertThat(response.getResponse().getContentAsString()).isEqualTo(MAPPER.writeValueAsString(expectedResponse));
+        assertThat(response).isEqualTo(expectedResponse);
     }
 
     @Test
-    void grantAccessShouldBeCalledOnceForEachUser() throws Exception {
+    void grantAccessShouldBeCalledOnceForEachOfThreeUsers() throws Exception {
         given(serviceAuthorisationApi.serviceToken(anyMap()))
             .willReturn(SERVICE_AUTH_TOKEN);
 
-        CallbackRequest request = CallbackRequest.builder().caseDetails(CaseDetails.builder()
-            .id(Long.valueOf(CASE_ID))
-            .data(ImmutableMap.<String, Object>builder()
-                .put("caseLocalAuthority", "example")
-                .build()).build())
-            .build();
-
-        mockMvc
-            .perform(post("/callback/case-initiation/submitted")
-                .header("authorization", AUTH_TOKEN)
-                .header("user-id", USER_ID)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(MAPPER.writeValueAsString(request)))
-            .andExpect(status().isOk());
-
-        Thread.sleep(3000);
-
-        verify(caseAccessApi, times(3)).grantAccessToCase(
-            eq(AUTH_TOKEN), any(), eq(USER_ID), eq(JURISDICTION), eq(CASE_TYPE), eq(CASE_ID), any()
-        );
+        assertThatCaseAccessApiIsCalledTimes(3);
     }
 
     @Test
@@ -142,11 +111,15 @@ class CaseInitiationControllerTest {
             any(), any(), any(), any(), any(), any(), any()
         );
 
-        CallbackRequest request = CallbackRequest.builder().caseDetails(CaseDetails.builder()
-            .id(Long.valueOf(CASE_ID))
-            .data(ImmutableMap.<String, Object>builder()
-                .put("caseLocalAuthority", "example")
-                .build()).build())
+        assertThatCaseAccessApiIsCalledTimes(3);
+    }
+
+    private void assertThatCaseAccessApiIsCalledTimes(int timesCalled) throws Exception {
+        CallbackRequest request = CallbackRequest.builder()
+            .caseDetails(CaseDetails.builder()
+                .id(Long.valueOf(CASE_ID))
+                .data(ImmutableMap.of("caseLocalAuthority", "example"))
+                .build())
             .build();
 
         mockMvc
@@ -154,12 +127,12 @@ class CaseInitiationControllerTest {
                 .header("authorization", AUTH_TOKEN)
                 .header("user-id", USER_ID)
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(MAPPER.writeValueAsString(request)))
-            .andExpect(status().isOk()).andReturn();
+                .content(mapper.writeValueAsString(request)))
+            .andExpect(status().isOk());
 
         Thread.sleep(3000);
 
-        verify(caseAccessApi, times(3)).grantAccessToCase(
+        verify(caseAccessApi, times(timesCalled)).grantAccessToCase(
             eq(AUTH_TOKEN), any(), eq(USER_ID), eq(JURISDICTION), eq(CASE_TYPE), eq(CASE_ID), any()
         );
     }
