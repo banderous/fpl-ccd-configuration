@@ -358,7 +358,7 @@
     "TabDisplayOrder": 8,
     "CaseFieldID": "hearingDetails",
     "TabFieldDisplayOrder": 1,
-    "DisplayContextParameter": "#TABLE(type,venue,date)"
+    "DisplayContextParameter": "#TABLE(type,venue,date,time,judgeTitle,judgeName,hearingNeedsBooked)"
   },
   {
     "LiveFrom": "01/01/2017",
