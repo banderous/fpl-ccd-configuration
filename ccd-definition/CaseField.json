@@ -434,6 +434,22 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
+    "ID": "testCaseFieldID1",
+    "Label": "A label example - Hearing date: ${hearingDetails.date} Hearing time: ${hearingDetails.time}.",
+    "FieldType": "Label",
+    "SecurityClassification": "Public"
+  },
+  {
+    "LiveFrom": "01/01/2017",
+    "CaseTypeID": "CARE_SUPERVISION_EPO",
+    "ID": "testCaseFieldID2",
+    "Label": "Test complex type!",
+    "FieldType": "StandardDirectionOrder",
+    "SecurityClassification": "Public"
+  },
+  {
+    "LiveFrom": "01/01/2017",
+    "CaseTypeID": "CARE_SUPERVISION_EPO",
     "ID": "c9Declaration",
     "Label": "If you send documents to a party's solicitor or a children's guardian, give their details",
     "FieldType": "Label",
