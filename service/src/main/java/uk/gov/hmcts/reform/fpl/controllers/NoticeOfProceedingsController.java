@@ -78,7 +78,7 @@ public class NoticeOfProceedingsController {
             HearingBooking hearingBooking = hearingBookingService.getMostUrgentHearingBooking(caseData);
 
             caseDetails.getData().put("proceedingLabel", String.format("The case management hearing will be on the %s.",
-                dateFormatterService.formatLocalDateToString(hearingBooking.getDate(), FormatStyle.LONG)));
+                dateFormatterService.formatLocalDateTimeBaseUsingFormat(hearingBooking.getStartDate(), "h:mma, d MMMM yyyy")));
 
             return AboutToStartOrSubmitCallbackResponse.builder()
                 .data(caseDetails.getData())
@@ -104,7 +104,7 @@ public class NoticeOfProceedingsController {
             .getNoticeOfProceedingTemplateData(caseData);
 
         List<DocmosisTemplates> templateTypes = getProceedingTemplateTypes(caseData);
-        
+
         List<Document> uploadedDocuments = generateAndUploadDocuments(userId, authorization, templateData,
             templateTypes);
 

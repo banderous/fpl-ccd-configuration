@@ -18,7 +18,7 @@ import uk.gov.hmcts.reform.fpl.model.HearingBooking;
 import uk.gov.hmcts.reform.fpl.model.common.Element;
 import uk.gov.hmcts.reform.fpl.service.DateFormatterService;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.FormatStyle;
 import java.util.List;
 import java.util.UUID;
@@ -36,7 +36,7 @@ class NoticeOfProceedingsControllerAboutToStartTest {
 
     private static final String AUTH_TOKEN = "Bearer token";
     private static final String USER_ID = "1";
-    private static final LocalDate TODAYS_DATE = LocalDate.now();
+    private static final LocalDateTime TODAYS_DATE = LocalDateTime.now();
 
     @Autowired
     private MockMvc mockMvc;
@@ -82,7 +82,7 @@ class NoticeOfProceedingsControllerAboutToStartTest {
         String proceedingLabel = callbackResponse.getData().get("proceedingLabel").toString();
 
         String expectedContent = String.format("The case management hearing will be on the %s.", dateFormatterService
-            .formatLocalDateToString(TODAYS_DATE, FormatStyle.LONG));
+            .formatLocalDateTimeBaseUsingFormat(TODAYS_DATE, "h:mma, d MMMM yyyy"));
 
         assertThat(proceedingLabel).isEqualTo(expectedContent);
     }
@@ -102,15 +102,15 @@ class NoticeOfProceedingsControllerAboutToStartTest {
         return ImmutableList.of(
             Element.<HearingBooking>builder()
                 .id(UUID.randomUUID())
-                .value(createHearingBooking(LocalDate.now().plusDays(5)))
+                .value(createHearingBooking(LocalDateTime.now().plusDays(5),LocalDateTime.now().plusDays(7)))
                 .build(),
             Element.<HearingBooking>builder()
                 .id(UUID.randomUUID())
-                .value(createHearingBooking(LocalDate.now().plusDays(2)))
+                .value(createHearingBooking(LocalDateTime.now().plusDays(2),LocalDateTime.now().plusDays(4)))
                 .build(),
             Element.<HearingBooking>builder()
                 .id(UUID.randomUUID())
-                .value(createHearingBooking(TODAYS_DATE))
+                .value(createHearingBooking(TODAYS_DATE, TODAYS_DATE.plusDays(2)))
                 .build()
         );
     }

@@ -18,7 +18,7 @@ import uk.gov.hmcts.reform.ccd.client.model.CaseDetails;
 import uk.gov.hmcts.reform.fpl.model.HearingBooking;
 import uk.gov.hmcts.reform.fpl.model.common.Element;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -42,7 +42,7 @@ class HearingBookingDetailsControllerTest {
 
     @Test
     void shouldReturnAnErrorWhenHearingDateIsSetToYesterday() throws Exception {
-        LocalDate yesterday = LocalDate.now().minusDays(1);
+        LocalDateTime yesterday = LocalDateTime.now().minusDays(1);
 
         AboutToStartOrSubmitCallbackResponse callbackResponse = makeRequest(createHearing(yesterday));
 
@@ -51,7 +51,7 @@ class HearingBookingDetailsControllerTest {
 
     @Test
     void shouldNotReturnAnErrorWhenHearingDateIsSetToTomorrow() throws Exception {
-        LocalDate tomorrow = LocalDate.now().plusDays(1);
+        LocalDateTime tomorrow = LocalDateTime.now().plusDays(1);
 
         AboutToStartOrSubmitCallbackResponse callbackResponse = makeRequest(createHearing(tomorrow));
 
@@ -60,7 +60,7 @@ class HearingBookingDetailsControllerTest {
 
     @Test
     void shouldReturnAnErrorWhenHearingDateIsSetToToday() throws Exception {
-        LocalDate today = LocalDate.now();
+        LocalDateTime today = LocalDateTime.now();
 
         AboutToStartOrSubmitCallbackResponse callbackResponse = makeRequest(createHearing(today));
 
@@ -69,7 +69,7 @@ class HearingBookingDetailsControllerTest {
 
     @Test
     void shouldReturnAnErrorWhenHearingDateIsSetInDistantPast() throws Exception {
-        LocalDate distantPast = LocalDate.now().minusYears(10000);
+        LocalDateTime distantPast = LocalDateTime.now().minusYears(10000);
 
         AboutToStartOrSubmitCallbackResponse callbackResponse = makeRequest(createHearing(distantPast));
 
@@ -78,16 +78,16 @@ class HearingBookingDetailsControllerTest {
 
     @Test
     void shouldNotReturnAnErrorWhenHearingDateIsSetInDistantFuture() throws Exception {
-        LocalDate distantFuture = LocalDate.now().plusYears(1000);
+        LocalDateTime distantFuture = LocalDateTime.now().plusYears(1000);
 
         AboutToStartOrSubmitCallbackResponse callbackResponse = makeRequest(createHearing(distantFuture));
 
         assertThat(callbackResponse.getErrors()).doesNotContain(ERROR_MESSAGE);
     }
 
-    private HearingBooking createHearing(LocalDate hearingDate) {
+    private HearingBooking createHearing(LocalDateTime hearingDateTime) {
         return HearingBooking.builder()
-            .date(hearingDate)
+            .startDate(hearingDateTime)
             .build();
     }
 

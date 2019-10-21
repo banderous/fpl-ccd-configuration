@@ -11,6 +11,8 @@ import uk.gov.hmcts.reform.fpl.model.HearingBooking;
 import uk.gov.hmcts.reform.fpl.model.common.Element;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.FormatStyle;
 import java.util.Map;
 import java.util.Objects;
@@ -43,11 +45,17 @@ public class CaseDataExtractionService {
             "applicantName", getFirstApplicantName(caseData),
             "orderTypes", getOrderTypes(caseData),
             "childrenNames", getAllChildrenNames(caseData),
-            "hearingDate", dateFormatterService.formatLocalDateToString(hearingBooking.getDate(), FormatStyle.LONG),
+            "hearingStartDate", dateFormatterService.formatLocalDateTimeBaseUsingFormat(hearingBooking.getStartDate(), "h:mma, d MMMM yyyy"),
+            "hearingEndDate", dateFormatterService.formatLocalDateTimeBaseUsingFormat(hearingBooking.getEndDate(), "h:mma, d MMMM yyyy"),
             "hearingVenue", hearingBooking.getVenue(),
-            "preHearingAttendance", hearingBooking.getPreHearingAttendance(),
-            "hearingTime", hearingBooking.getTime()
+            "preHearingAttendance", dateFormatterService.formatLocalDateTimeBaseUsingFormat(getPrehearingAttendanceTime(hearingBooking), "h:mma")
         );
+    }
+
+    private LocalDateTime getPrehearingAttendanceTime(HearingBooking hearingBooking) {
+        LocalDateTime startDate = hearingBooking.getStartDate();
+        return LocalDateTime.of(LocalDate.of(startDate.getYear(), startDate.getMonth(), startDate.getDayOfMonth()),
+            LocalTime.of(startDate.getHour() - 1, startDate.getMinute()));
     }
 
     private String getOrderTypes(CaseData caseData) {

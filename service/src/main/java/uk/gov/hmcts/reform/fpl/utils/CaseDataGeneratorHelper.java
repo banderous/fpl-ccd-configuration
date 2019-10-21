@@ -9,6 +9,7 @@ import uk.gov.hmcts.reform.fpl.model.HearingBooking;
 import uk.gov.hmcts.reform.fpl.model.common.Element;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -17,12 +18,11 @@ public class CaseDataGeneratorHelper {
         // NO-OP
     }
 
-    public static HearingBooking createHearingBooking(LocalDate date) {
+    public static HearingBooking createHearingBooking(LocalDateTime startDate, LocalDateTime endDate) {
         return HearingBooking.builder()
-            .date(date)
+            .startDate(startDate)
+            .endDate(endDate)
             .venue("Venue")
-            .preHearingAttendance("08.15am")
-            .time("09.15am")
             .build();
     }
 

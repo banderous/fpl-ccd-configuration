@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 @Data
@@ -14,11 +16,12 @@ public class HearingBooking {
     private final String type;
     private final String typeDetails;
     private final String venue;
-    private final LocalDate date;
-    private final String preHearingAttendance;
-    private final String time;
+    private final LocalDateTime startDate;
+    private final LocalDateTime endDate;
     private final List<String> hearingNeedsBooked;
     private final String hearingNeedsDetails;
     private final String judgeTitle;
     private final String judgeName;
 }
+
+

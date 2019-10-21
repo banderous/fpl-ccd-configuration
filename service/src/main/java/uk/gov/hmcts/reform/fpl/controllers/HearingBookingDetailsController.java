@@ -16,7 +16,7 @@ import uk.gov.hmcts.reform.fpl.model.common.Element;
 import uk.gov.hmcts.reform.fpl.service.HearingBookingService;
 import uk.gov.hmcts.reform.fpl.service.MapperService;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
@@ -62,9 +62,9 @@ public class HearingBookingDetailsController {
 
         caseData.getHearingDetails().stream()
             .map(Element::getValue)
-            .map(HearingBooking::getDate)
+            .map(HearingBooking::getStartDate)
             .filter(Objects::nonNull)
-            .filter(hearingDate -> !hearingDate.isAfter(LocalDate.now()))
+            .filter(hearingDateTime -> !hearingDateTime.isAfter(LocalDateTime.now()))
             .findAny()
             .ifPresent(error -> errors.add("Enter a future date"));
 

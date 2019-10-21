@@ -8,7 +8,7 @@ import uk.gov.hmcts.reform.fpl.model.CaseData;
 import uk.gov.hmcts.reform.fpl.model.HearingBooking;
 import uk.gov.hmcts.reform.fpl.model.common.Element;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -19,7 +19,7 @@ import static uk.gov.hmcts.reform.fpl.utils.CaseDataGeneratorHelper.createHearin
 class HearingBookingServiceTest {
 
     private final HearingBookingService service = new HearingBookingService();
-    private static final LocalDate TODAYS_DATE = LocalDate.now();
+    private static final LocalDateTime TODAYS_DATE = LocalDateTime.now();
 
     @Test
     void shouldReturnAnEmptyHearingBookingIfHearingDetailsIsNull() {
@@ -36,13 +36,13 @@ class HearingBookingServiceTest {
             .hearingDetails(
                 ImmutableList.of(Element.<HearingBooking>builder()
                     .value(
-                        HearingBooking.builder().time("2.30").build())
+                        HearingBooking.builder().venue("Swansea").build())
                     .build()))
             .build();
 
         List<Element<HearingBooking>> hearingList = service.expandHearingBookingCollection(caseData);
 
-        assertThat(hearingList.get(0).getValue().getTime()).isEqualTo("2.30");
+        assertThat(hearingList.get(0).getValue().getVenue()).isEqualTo("Swansea");
     }
 
     @Test
@@ -52,20 +52,20 @@ class HearingBookingServiceTest {
         CaseData caseData = CaseData.builder().hearingDetails(hearingBookings).build();
         HearingBooking sortedHearingBooking = service.getMostUrgentHearingBooking(caseData);
 
-        assertThat(sortedHearingBooking.getDate()).isEqualTo(TODAYS_DATE);
+        assertThat(sortedHearingBooking.getStartDate()).isEqualTo(TODAYS_DATE);
     }
 
     private List<Element<HearingBooking>> createHearingBookings() {
         return ImmutableList.of(
             Element.<HearingBooking>builder()
                 .id(UUID.randomUUID())
-                .value(createHearingBooking(LocalDate.now().plusDays(5))).build(),
+                .value(createHearingBooking(LocalDateTime.now().plusDays(5),LocalDateTime.now().plusDays(7))).build(),
             Element.<HearingBooking>builder()
                 .id(UUID.randomUUID())
-                .value(createHearingBooking(LocalDate.now().plusDays(2))).build(),
+                .value(createHearingBooking(LocalDateTime.now().plusDays(2),LocalDateTime.now().plusDays(4))).build(),
             Element.<HearingBooking>builder()
                 .id(UUID.randomUUID())
-                .value(createHearingBooking(TODAYS_DATE)).build()
+                .value(createHearingBooking(TODAYS_DATE,TODAYS_DATE.plusDays(2))).build()
         );
     }
 }

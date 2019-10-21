@@ -1,0 +1,217 @@
+{
+  "orders": {
+    "orderType": [
+      "CARE_ORDER"
+    ],
+    "directions": null
+  },
+  "grounds": {
+    "thresholdReason": [
+      "noCare"
+    ],
+    "thresholdDetails": "mock threshold details"
+  },
+  "hearing": {
+    "type": null,
+    "reason": "test reason",
+    "timeFrame": "Same day",
+    "reducedNotice": null,
+    "withoutNotice": null,
+    "respondentsAware": null
+  },
+  "caseName": "Barnet Council v Smith",
+  "children1": [
+    {
+      "id": "3bac7ec8-3569-415c-b853-c931d5a9bd1f",
+      "value": {
+        "party": {
+          "gender": "Boy",
+          "partyId": "d604cb45-3292-4070-bd66-6a1a50f9b61a",
+          "lastName": "Jones",
+          "firstName": "Timothy",
+          "partyType": "INDIVIDUAL",
+          "dateOfBirth": "2015-08-01",
+          "socialWorkerTelephoneNumber": {}
+        }
+      }
+    }
+  ],
+  "solicitor": {
+    "dx": null,
+    "name": null,
+    "email": null,
+    "mobile": null,
+    "reference": null,
+    "telephone": null
+  },
+  "applicants": [
+    {
+      "id": "cc1466c3-206a-4981-b7ae-297ac141f5a1",
+      "value": {
+        "party": {
+          "email": {
+            "email": "applicant@email.com"
+          },
+          "address": {
+            "County": "",
+            "Country": "United Kingdom",
+            "PostCode": "RG4 7AA",
+            "PostTown": "Reading",
+            "AddressLine1": "Flat 2",
+            "AddressLine2": "Caversham House 15-17",
+            "AddressLine3": "Church Road"
+          },
+          "partyId": "7d51b648-185e-4883-aedb-fcfb34fa3405",
+          "jobTitle": "Legal adviser",
+          "partyType": "ORGANISATION",
+          "pbaNumber": "PBA1234567",
+          "mobileNumber": {
+            "telephoneNumber": "07000000000"
+          },
+          "telephoneNumber": {
+            "telephoneNumber": "00000000000",
+            "contactDirection": "Jonathon Walker"
+          },
+          "organisationName": "John Smith"
+        },
+        "leadApplicantIndicator": "Yes"
+      }
+    }
+  ],
+  "dateSubmitted": "2019-10-11",
+  "submittedForm": {
+    "document_url": "http://dm-store:8080/documents/28366eb8-fb4f-41f7-9b20-c8907035f055",
+    "document_filename": "Barnet_Council_v_Smith.pdf",
+    "document_binary_url": "http://dm-store:8080/documents/28366eb8-fb4f-41f7-9b20-c8907035f055/binary"
+  },
+  "hearingDetails": [
+    {
+      "id": "7f777ebd-6622-4dd2-b7d3-8e9eb80eadfc",
+      "value": {
+        "date": "2050-12-20",
+        "time": "4pm",
+        "type": "CASE_MANAGEMENT",
+        "venue": "Court Name, Very Very Very Very Very Very Very Very Very Long Street Name, Town Name, County, Postcode",
+        "judgeName": "Brennan",
+        "judgeTitle": "Her Honour Judge",
+        "hearingNeedsBooked": [
+          "INTERPRETER"
+        ],
+        "hearingNeedsDetails": "Hearing details",
+        "preHearingAttendance": "3pm"
+      }
+    },
+    {
+      "id": "77cdfbfa-f01b-4762-9837-492301d1bc47",
+      "value": {
+        "date": "2025-10-22",
+        "time": "3pm",
+        "type": "ISSUE_RESOLUTION",
+        "venue": "Swansea Family Court, Swansea Street, Swansea, Swansea County, SW11 1SW",
+        "judgeName": "Robinson",
+        "judgeTitle": "District Judge",
+        "hearingNeedsBooked": [
+          "INTERMEDIARY",
+          "FACILITIES_OR_ASSISTANCE"
+        ],
+        "hearingNeedsDetails": "Hearing details",
+        "preHearingAttendance": "2pm"
+      }
+    }
+  ],
+  "proceedingLabel": "The case management hearing will be on the 22 October 2025.",
+  "proceedingTypes": [
+    "NOTICE_OF_PROCEEDINGS_FOR_PARTIES",
+    "NOTICE_OF_PROCEEDINGS_FOR_NON_PARTIES"
+  ],
+  "submissionConsent": [
+    "agree"
+  ],
+  "caseLocalAuthority": "SA",
+  "familyManCaseNumber": "504",
+  "dateAndTimeSubmitted": "2019-10-11T12:27:08.906629+01:00",
+  "judgeAndLegalAdvisor": {
+    "judgeTitle": "HER_HONOUR_JUDGE",
+    "judgeLastName": "Brennan",
+    "legalAdvisorName": "Robbie Rob"
+  },
+  "submissionConsentLabel": "I, kurt@swansea.gov.uk (local-authority), believe that the facts stated in this application are true.",
+  "documents_socialWorkOther": [],
+  "noticeOfProceedingsBundle": [
+    {
+      "id": "2139e427-0dba-4aed-8a7e-a380b96761f0",
+      "value": {
+        "document": {
+          "document_url": "http://dm-store:8080/documents/5263801e-c54f-4850-a38a-8ead051fc297",
+          "document_filename": "Notice_of_proceedings_c6.pdf",
+          "document_binary_url": "http://dm-store:8080/documents/5263801e-c54f-4850-a38a-8ead051fc297/binary"
+        }
+      }
+    },
+    {
+      "id": "71fbb696-1056-434f-8b2d-753b3a8831f3",
+      "value": {
+        "document": {
+          "document_url": "http://dm-store:8080/documents/3da2de2f-bb85-4897-92a8-2b79b5156088",
+          "document_filename": "Notice_of_proceedings_c6a.pdf",
+          "document_binary_url": "http://dm-store:8080/documents/3da2de2f-bb85-4897-92a8-2b79b5156088/binary"
+        }
+      }
+    }
+  ],
+  "documents_checklist_document": {
+    "documentStatus": "Attached",
+    "typeOfDocument": {
+      "document_url": "http://dm-store:8080/documents/5375d2c6-9413-4f7c-b606-48e5bdf50586",
+      "document_filename": "mockFile.txt",
+      "document_binary_url": "http://dm-store:8080/documents/5375d2c6-9413-4f7c-b606-48e5bdf50586/binary"
+    }
+  },
+  "documents_threshold_document": {
+    "documentStatus": "Attached",
+    "typeOfDocument": {
+      "document_url": "http://dm-store:8080/documents/b20dc64a-85c4-463d-b877-4031be63f4fc",
+      "document_filename": "mockFile.txt",
+      "document_binary_url": "http://dm-store:8080/documents/b20dc64a-85c4-463d-b877-4031be63f4fc/binary"
+    }
+  },
+  "documents_socialWorkCarePlan_document": {
+    "documentStatus": "Attached",
+    "typeOfDocument": {
+      "document_url": "http://dm-store:8080/documents/c6e9b66a-1372-4f61-8f93-197d83d3f222",
+      "document_filename": "mockFile.txt",
+      "document_binary_url": "http://dm-store:8080/documents/c6e9b66a-1372-4f61-8f93-197d83d3f222/binary"
+    }
+  },
+  "documents_socialWorkStatement_document": {
+    "documentStatus": "Included in social work evidence template (SWET)",
+    "typeOfDocument": {
+      "document_url": "http://dm-store:8080/documents/83226cc5-64b9-4ba7-a300-5280ecec30eb",
+      "document_filename": "mockFile.txt",
+      "document_binary_url": "http://dm-store:8080/documents/83226cc5-64b9-4ba7-a300-5280ecec30eb/binary"
+    }
+  },
+  "documents_socialWorkAssessment_document": {
+    "documentStatus": "Attached",
+    "typeOfDocument": {
+      "document_url": "http://dm-store:8080/documents/5653fcef-d817-457d-a76f-7053c5fc4c17",
+      "document_filename": "mockFile.txt",
+      "document_binary_url": "http://dm-store:8080/documents/5653fcef-d817-457d-a76f-7053c5fc4c17/binary"
+    }
+  },
+  "documents_socialWorkChronology_document": {
+    "statusReason": "mock reason",
+    "documentStatus": "To follow"
+  },
+  "documents_socialWorkEvidenceTemplate_document": {
+    "documentStatus": null
+  }
+}
+
+SELECT COUNT(*)
+FROM "case_data"
+WHERE ("jurisdiction" = 'PUBLICLAW')
+AND ("case_type_id" = 'CARE_SUPERVISION_EPO')
+AND ("data"::json->>'hearingDetails' LIKE '%date%')
+
+
