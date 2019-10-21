@@ -40,6 +40,7 @@ public class DocmosisDocumentGeneratorService {
             .data(templateData)
             .outputFormat("pdf")
             .outputName("IGNORED")
+            .pdfWatermark("Draft")
             .accessKey(docmosisDocumentGenerationConfiguration.getAccessKey())
             .build();
 

@@ -16,5 +16,6 @@ public class DocmosisRequest {
     private final String templateName;
     private final String outputFormat;
     private final String outputName;
+    private final String pdfWatermark;
     private final Map<String, String> data;
 }
