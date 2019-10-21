@@ -356,9 +356,9 @@
     "TabID": "TestTabID",
     "TabLabel": "Test tab",
     "TabDisplayOrder": 8,
-    "CaseFieldID": "hearingDetails",
+    "CaseFieldID": "localAuthorityDirections",
     "TabFieldDisplayOrder": 1,
-    "DisplayContextParameter": "#TABLE(type,venue,date,time,judgeTitle,judgeName,hearingNeedsBooked)"
+    "DisplayContextParameter": "#TABLE(directionType)"
   },
   {
     "LiveFrom": "01/01/2017",
