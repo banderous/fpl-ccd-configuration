@@ -10,6 +10,7 @@ import uk.gov.hmcts.reform.fpl.model.Child;
 import uk.gov.hmcts.reform.fpl.model.HearingBooking;
 import uk.gov.hmcts.reform.fpl.model.common.Element;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -53,9 +54,7 @@ public class CaseDataExtractionService {
     }
 
     private LocalDateTime getPrehearingAttendanceTime(HearingBooking hearingBooking) {
-        LocalDateTime startDate = hearingBooking.getStartDate();
-        return LocalDateTime.of(LocalDate.of(startDate.getYear(), startDate.getMonth(), startDate.getDayOfMonth()),
-            LocalTime.of(startDate.getHour() - 1, startDate.getMinute()));
+        return hearingBooking.getStartDate().minus(Duration.ofHours(1));
     }
 
     private String getOrderTypes(CaseData caseData) {
