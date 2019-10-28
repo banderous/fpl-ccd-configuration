@@ -91,7 +91,18 @@ public class DirectionHelperService {
                     if (!direction.getValue().getReadOnly().equals("No")) {
                         directionToAddValue.getValue().setDirectionText(direction.getValue().getDirectionText());
                     }
+
+                    if (isDirectionRemovedAndEditable(directionToAddValue, direction)) {
+                        directionToAddValue.getValue().setDirectionText(direction.getValue().getDirectionText());
+                    }
                 }));
+    }
+
+    private boolean isDirectionRemovedAndEditable(Element<Direction> directionToAddValue,
+                                                  Element<Direction> direction) {
+        return direction.getValue().getDirectionRemovable().equals("Yes")
+            && direction.getValue().getReadOnly().equals("No")
+            && "No".equals(directionToAddValue.getValue().getDirectionNeeded());
     }
 
     /**

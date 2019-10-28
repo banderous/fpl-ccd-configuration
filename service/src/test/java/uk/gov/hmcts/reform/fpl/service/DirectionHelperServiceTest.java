@@ -150,6 +150,42 @@ class DirectionHelperServiceTest {
     }
 
     @Test
+    void persistHiddenDirectionValues_shouldAddTextValueWhenDirectionIsRemovableNotNeededAndEditable() {
+        UUID uuid = UUID.randomUUID();
+
+        List<Element<Direction>> withHiddenValues = ImmutableList.of(
+            Element.<Direction>builder()
+                .id(uuid)
+                .value(Direction.builder()
+                    .directionType("direction type")
+                    .directionText("hidden text")
+                    .readOnly("No")
+                    .directionRemovable("Yes")
+                    .directionNeeded("No")
+                    .build())
+                .build());
+
+        List<Element<Direction>> toAddValues = ImmutableList.of(
+            Element.<Direction>builder()
+                .id(uuid)
+                .value(Direction.builder()
+                    .directionType("direction type")
+                    .directionNeeded("No")
+                    .build())
+                .build());
+
+        service.persistHiddenDirectionValues(withHiddenValues, toAddValues);
+
+        assertThat(toAddValues.get(0).getValue()).isEqualTo(Direction.builder()
+            .directionType("direction type")
+            .directionText("hidden text")
+            .readOnly("No")
+            .directionRemovable("Yes")
+            .directionNeeded("No")
+            .build());
+    }
+
+    @Test
     void sortDirectionsByAssignee_shouldSortDirectionsIntoSeparateEntriesInMap() {
         List<Element<Direction>> directions = ImmutableList.<Element<Direction>>builder()
             .addAll(buildDirections(LOCAL_AUTHORITY))
