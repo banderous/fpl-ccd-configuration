@@ -28,11 +28,12 @@ public class C2UploadedEmailContentProvider extends AbstractEmailContentProvider
     public Map<String, Object> buildC2UploadNotification(final CaseDetails caseDetails) {
         CaseData caseData = objectMapper.convertValue(caseDetails.getData(), CaseData.class);
         final String subjectLine = EmailNotificationHelper.buildSubjectLine(caseData);
+        final String caseDetailsId = String.valueOf(caseDetails.getId());
         return Map.of(
             "subjectLine", subjectLine,
             "hearingDetailsCallout", subjectLine,
-            "reference", String.valueOf(caseDetails.getId()),
-            "caseUrl", uiBaseUrl + "/case/" + JURISDICTION + "/" + CASE_TYPE + "/" + caseDetails.getId()
+            "reference", caseDetailsId,
+            "caseUrl", String.join("/", uiBaseUrl , "case", JURISDICTION, CASE_TYPE, caseDetailsId)
         );
     }
 }
