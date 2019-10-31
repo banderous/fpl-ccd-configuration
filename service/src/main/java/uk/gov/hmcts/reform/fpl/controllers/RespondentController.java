@@ -1,5 +1,6 @@
 package uk.gov.hmcts.reform.fpl.controllers;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableList;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import uk.gov.hmcts.reform.ccd.client.model.AboutToStartOrSubmitCallbackResponse;
 import uk.gov.hmcts.reform.ccd.client.model.CallbackRequest;
 import uk.gov.hmcts.reform.ccd.client.model.CaseDetails;
+import uk.gov.hmcts.reform.fpl.model.CaseData;
 import uk.gov.hmcts.reform.fpl.model.Respondent;
 import uk.gov.hmcts.reform.fpl.model.common.Party;
 import uk.gov.hmcts.reform.fpl.service.MapperService;
@@ -27,11 +29,11 @@ import static java.util.stream.Collectors.toList;
 @RequestMapping("/callback/enter-respondents")
 public class RespondentController {
 
-    private final MapperService mapper;
+    private final ObjectMapper mapper;
     private final RespondentService respondentService;
 
     @Autowired
-    public RespondentController(MapperService mapper,
+    public RespondentController(ObjectMapper mapper,
                                 RespondentService respondentService) {
         this.mapper = mapper;
         this.respondentService = respondentService;
@@ -70,7 +72,7 @@ public class RespondentController {
 
         List<Respondent> respondents = respondentObject.stream()
             .map(respondent ->
-                mapper.mapObject((Map<String, Object>) respondent.get("value"), Respondent.class))
+                mapper.convertValue((Map<String, Object>) respondent.get("value"), Respondent.class))
             .collect(toList());
 
         if (respondents.stream()
