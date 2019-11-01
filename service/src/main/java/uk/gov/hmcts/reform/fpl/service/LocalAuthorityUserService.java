@@ -1,5 +1,6 @@
 package uk.gov.hmcts.reform.fpl.service;
 
+import feign.FeignException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,9 +51,16 @@ public class LocalAuthorityUserService {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        var authentication = client.authenticateUser("fpl-system-update@mailnesia.com", "Password12");
-        caseUserApi.updateCaseRolesForUser(authentication, authTokenGenerator.generate(), caseId, creatorUserId,
-            new CaseUser(creatorUserId, Set.of("[LASOLICITOR]")));
+
+        Set<String> caseRoles = Set.of("[LASOLICITOR]");
+        try {
+            String authentication = client.authenticateUser("fpl-system-update@mailnesia.com", "Password12");
+            caseUserApi.updateCaseRolesForUser(authentication, authTokenGenerator.generate(), caseId, creatorUserId,
+                new CaseUser(creatorUserId, caseRoles));
+            logger.info("Added case roles {} to user {}", caseRoles, creatorUserId);
+        } catch (FeignException exception) {
+            logger.warn(String.format("Error adding case roles %s to user %s", caseRoles, creatorUserId), exception);
+        }
 
         findUserIds(caseLocalAuthority).stream()
             .filter(userId -> !Objects.equals(userId, creatorUserId))
