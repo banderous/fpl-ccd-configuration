@@ -5,6 +5,7 @@
     "ID": "Open",
     "Name": "Open",
     "Description": "Initial case state – create title as a minimum; add documents, etc.",
+    "TitleDisplay": "Case name: ***${caseName}*** and ${[STATE]}",
     "DisplayOrder": 1
   },
   {
