@@ -13,7 +13,8 @@ public enum Section {
     GROUNDS("grounds", "grounds for the application"),
     HEARING("hearing", "hearing needed"),
     DOCUMENTS("document", "documents"),
-    CASENAME("casename", "case name");
+    CASENAME("casename", "case name"),
+    C2_UPLOAD("c2Upload", "upload a c2");
 
     private final String[] errorKeys;
     private final String sectionHeaderName;

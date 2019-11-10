@@ -48,7 +48,7 @@ public class CaseData {
     private final List<@NotNull(message = "You need to add details to respondents")Element<Respondent>> respondents1;
 
     @Valid
-    private final Respondent getFirstRespondent() {
+    private Respondent getFirstRespondent() {
         if (isEmpty(respondents1)) {
             return Respondent.builder().build();
         }
@@ -133,5 +133,7 @@ public class CaseData {
     private final List<Element<Recipients>> statementOfService;
     private final JudgeAndLegalAdvisor judgeAndLegalAdvisor;
     private final C2DocumentBundle temporaryC2Document;
+
+    @NotNull(message = "You need to upload a C2 Document")
     private final List<Element<C2DocumentBundle>> c2DocumentBundle;
 }
