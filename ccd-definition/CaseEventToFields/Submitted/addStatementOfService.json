@@ -2,7 +2,7 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "CaseEventID": "addStatementOfService",
+    "CaseEventID": "addStatementOfService-Submitted",
     "CaseFieldID": "c9Declaration",
     "PageFieldDisplayOrder": 1,
     "DisplayContext": "READONLY",
@@ -13,7 +13,7 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "CaseEventID": "addStatementOfService",
+    "CaseEventID": "addStatementOfService-Submitted",
     "CaseFieldID": "statementOfService",
     "PageFieldDisplayOrder": 2,
     "DisplayContext": "MANDATORY",
@@ -25,7 +25,7 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "CaseEventID": "addStatementOfService",
+    "CaseEventID": "addStatementOfService-Submitted",
     "CaseFieldID": "serviceDeclarationLabel",
     "PageFieldDisplayOrder": 3,
     "DisplayContext": "READONLY",
@@ -36,7 +36,7 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "CaseEventID": "addStatementOfService",
+    "CaseEventID": "addStatementOfService-Submitted",
     "CaseFieldID": "serviceConsent",
     "PageFieldDisplayOrder": 4,
     "DisplayContext": "MANDATORY",

@@ -107,7 +107,7 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "ID": "amendAttendingHearingGatekeeping",
+    "ID": "amendAttendingHearing-Gatekeeping",
     "Name": "Attending the hearing",
     "Description": "Amend extra support needed for anyone to take part in hearing",
     "DisplayOrder": 8,

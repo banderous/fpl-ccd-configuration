@@ -2,9 +2,9 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "CaseEventID": "addFamilyManCaseNumber",
-    "CaseFieldID": "familyManCaseNumber",
-    "PageFieldDisplayOrder": 1,
+    "CaseEventID": "amendChildren-Submitted",
+    "CaseFieldID": "children1",
+    "PageFieldDisplayOrder": 3,
     "DisplayContext": "OPTIONAL",
     "PageID": 1,
     "PageDisplayOrder": 1,

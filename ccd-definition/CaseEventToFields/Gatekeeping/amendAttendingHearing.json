@@ -2,12 +2,11 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "CaseEventID": "addCaseIDReference",
-    "CaseFieldID": "caseIDReference",
+    "CaseEventID": "amendAttendingHearing-Gatekeeping",
+    "CaseFieldID": "hearingPreferences",
     "PageFieldDisplayOrder": 1,
     "DisplayContext": "OPTIONAL",
     "PageID": 1,
-    "PageLabel": "Add Case ID",
     "PageDisplayOrder": 1,
     "PageColumnNumber": 1
   }

@@ -2,7 +2,7 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "ID": "addFamilyManCaseNumber",
+    "ID": "addFamilyManCaseNumber-Submitted",
     "Name": "Add case number",
     "Description": "Add case number",
     "DisplayOrder": 1,
@@ -16,7 +16,7 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "ID": "hearingBookingDetails",
+    "ID": "hearingBookingDetails-Submitted",
     "Name": "Add hearing details",
     "Description": "Add hearing booking details to a case",
     "DisplayOrder": 2,
@@ -73,7 +73,7 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "ID": "amendChildren",
+    "ID": "amendChildren-Submitted",
     "Name": "Children",
     "Description": "Amending the children for the case",
     "DisplayOrder": 6,
@@ -89,7 +89,7 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "ID": "amendRespondents",
+    "ID": "amendRespondents-Submitted",
     "Name": "Respondents",
     "Description": "Amending the respondents for the case",
     "DisplayOrder": 7,
@@ -105,7 +105,7 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "ID": "amendOthers",
+    "ID": "amendOthers-Submitted",
     "Name": "Others to be given notice",
     "Description": "Amending others for the case",
     "DisplayOrder": 8,
@@ -119,7 +119,7 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "ID": "amendInternationalElement",
+    "ID": "amendInternationalElement-Submitted",
     "Name": "International element",
     "Description": "Amending the international element",
     "DisplayOrder": 9,
@@ -133,7 +133,7 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "ID": "amendOtherProceedings",
+    "ID": "amendOtherProceedings-Submitted",
     "Name": "Other proceedings",
     "Description": "Amending other proceedings and allocation proposals",
     "DisplayOrder": 10,
@@ -147,7 +147,7 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "ID": "amendAttendingHearing",
+    "ID": "amendAttendingHearing-Submitted",
     "Name": "Attending the hearing",
     "Description": "Amend extra support needed for anyone to take part in hearing",
     "DisplayOrder": 11,
@@ -177,7 +177,7 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "ID": "addStatementOfService",
+    "ID": "addStatementOfService-Submitted",
     "Name": "Add statement of service (c9)",
     "Description": "Add statement of service",
     "DisplayOrder": 13,

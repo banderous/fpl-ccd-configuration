@@ -236,7 +236,7 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "ID": "addCaseIDReference",
+    "ID": "addCaseIDReference-Open",
     "Name": "Add case ID",
     "Description": "Add case ID",
     "DisplayOrder": 16,
