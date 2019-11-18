@@ -2,8 +2,8 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "CaseEventID": "enterChildren",
-    "CaseFieldID": "children1",
+    "CaseEventID": "enterOthers-Open",
+    "CaseFieldID": "others",
     "PageFieldDisplayOrder": 1,
     "DisplayContext": "OPTIONAL",
     "PageID": 1,

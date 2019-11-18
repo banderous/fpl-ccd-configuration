@@ -2,7 +2,7 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "CaseEventID": "openCase",
+    "CaseEventID": "openCase-Open",
     "UserRole": "caseworker-publiclaw-solicitor",
     "CRUD": "CRU"
   },
@@ -16,91 +16,91 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "CaseEventID": "ordersNeeded",
+    "CaseEventID": "ordersNeeded-Open",
     "UserRole": "caseworker-publiclaw-solicitor",
     "CRUD": "CRU"
   },
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "CaseEventID": "hearingNeeded",
+    "CaseEventID": "hearingNeeded-Open",
     "UserRole": "caseworker-publiclaw-solicitor",
     "CRUD": "CRU"
   },
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "CaseEventID": "enterChildren",
+    "CaseEventID": "enterChildren-Open",
     "UserRole": "caseworker-publiclaw-solicitor",
     "CRUD": "CRU"
   },
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "CaseEventID": "enterRespondents",
+    "CaseEventID": "enterRespondents-Open",
     "UserRole": "caseworker-publiclaw-solicitor",
     "CRUD": "CRU"
   },
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "CaseEventID": "enterApplicant",
+    "CaseEventID": "enterApplicant-Open",
     "UserRole": "caseworker-publiclaw-solicitor",
     "CRUD": "CRU"
   },
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "CaseEventID": "enterOthers",
+    "CaseEventID": "enterOthers-Open",
     "UserRole": "caseworker-publiclaw-solicitor",
     "CRUD": "CRU"
   },
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "CaseEventID": "enterGrounds",
+    "CaseEventID": "enterGrounds-Open",
     "UserRole": "caseworker-publiclaw-solicitor",
     "CRUD": "CRU"
   },
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "CaseEventID": "enterRiskHarm",
+    "CaseEventID": "enterRiskHarm-Open",
     "UserRole": "caseworker-publiclaw-solicitor",
     "CRUD": "CRU"
   },
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "CaseEventID": "enterParentingFactors",
+    "CaseEventID": "enterParentingFactors-Open",
     "UserRole": "caseworker-publiclaw-solicitor",
     "CRUD": "CRU"
   },
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "CaseEventID": "enterInternationalElement",
+    "CaseEventID": "enterInternationalElement-Open",
     "UserRole": "caseworker-publiclaw-solicitor",
     "CRUD": "CRU"
   },
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "CaseEventID": "otherProceedings",
+    "CaseEventID": "otherProceedings-Open",
     "UserRole": "caseworker-publiclaw-solicitor",
     "CRUD": "CRU"
   },
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "CaseEventID": "otherProposal",
+    "CaseEventID": "otherProposal-Open",
     "UserRole": "caseworker-publiclaw-solicitor",
     "CRUD": "CRU"
   },
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "CaseEventID": "attendingHearing",
+    "CaseEventID": "attendingHearing-Open",
     "UserRole": "caseworker-publiclaw-solicitor",
     "CRUD": "CRU"
   },
@@ -114,7 +114,7 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "CaseEventID": "changeCaseName",
+    "CaseEventID": "changeCaseName-Open",
     "UserRole": "caseworker-publiclaw-solicitor",
     "CRUD": "CRU"
   },
@@ -219,14 +219,14 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "CaseEventID": "otherAllocationDecision",
+    "CaseEventID": "otherAllocationDecision-Gatekeeping",
     "UserRole": "caseworker-publiclaw-gatekeeper",
     "CRUD": "CRU"
   },
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "CaseEventID": "otherProposal",
+    "CaseEventID": "otherProposal-Open",
     "UserRole": "caseworker-publiclaw-gatekeeper",
     "CRUD": "CRU"
   },
@@ -457,7 +457,7 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "CaseEventID": "draftCMO",
+    "CaseEventID": "draftCMO-PrepareForHearing",
     "UserRole": "caseworker-publiclaw-solicitor",
     "CRUD": "CRU"
   }

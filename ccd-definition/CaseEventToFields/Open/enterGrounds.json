@@ -2,7 +2,7 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "CaseEventID": "enterGrounds",
+    "CaseEventID": "enterGrounds-Open",
     "CaseFieldID": "EPO_REASONING_SHOW",
     "PageFieldDisplayOrder": 1,
     "DisplayContext": "OPTIONAL",
@@ -14,7 +14,7 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "CaseEventID": "enterGrounds",
+    "CaseEventID": "enterGrounds-Open",
     "CaseFieldID": "groundsForEPO",
     "PageFieldDisplayOrder": 2,
     "DisplayContext": "OPTIONAL",
@@ -26,7 +26,7 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "CaseEventID": "enterGrounds",
+    "CaseEventID": "enterGrounds-Open",
     "CaseFieldID": "grounds",
     "PageFieldDisplayOrder": 3,
     "DisplayContext": "OPTIONAL",

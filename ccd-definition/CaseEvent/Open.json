@@ -2,7 +2,7 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "ID": "openCase",
+    "ID": "openCase-Open",
     "Name": "Start application",
     "Description": "Create a new case – add a title",
     "DisplayOrder": 1,
@@ -19,7 +19,7 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "ID": "ordersNeeded",
+    "ID": "ordersNeeded-Open",
     "Name": "Orders and directions needed",
     "Description": "Selecting the orders needed for application",
     "DisplayOrder": 2,
@@ -34,7 +34,7 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "ID": "hearingNeeded",
+    "ID": "hearingNeeded-Open",
     "Name": "Hearing needed",
     "Description": "Selecting the hearing needed for application",
     "DisplayOrder": 3,
@@ -48,7 +48,7 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "ID": "enterChildren",
+    "ID": "enterChildren-Open",
     "Name": "Children",
     "Description": "Entering the children for the case",
     "DisplayOrder": 4,
@@ -64,7 +64,7 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "ID": "enterRespondents",
+    "ID": "enterRespondents-Open",
     "Name": "Respondents",
     "Description": "Entering the respondents for the case",
     "DisplayOrder": 5,
@@ -80,7 +80,7 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "ID": "enterApplicant",
+    "ID": "enterApplicant-Open",
     "Name": "Applicant",
     "Description": "Entering the applicant for the case",
     "DisplayOrder": 6,
@@ -96,7 +96,7 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "ID": "enterOthers",
+    "ID": "enterOthers-Open",
     "Name": "Others to be given notice",
     "Description": "Entering others for the case",
     "DisplayOrder": 7,
@@ -110,7 +110,7 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "ID": "enterGrounds",
+    "ID": "enterGrounds-Open",
     "Name": "Grounds for the application",
     "Description": "Entering the grounds for the application",
     "DisplayOrder": 8,
@@ -124,7 +124,7 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "ID": "enterRiskHarm",
+    "ID": "enterRiskHarm-Open",
     "Name": "Risk and harm to children",
     "Description": "Entering opinion on risk and harm to children",
     "DisplayOrder": 9,
@@ -138,7 +138,7 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "ID": "enterParentingFactors",
+    "ID": "enterParentingFactors-Open",
     "Name": "Factors affecting parenting",
     "Description": "Entering the factors affecting parenting",
     "DisplayOrder": 10,
@@ -152,7 +152,7 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "ID": "enterInternationalElement",
+    "ID": "enterInternationalElement-Open",
     "Name": "International element",
     "Description": "Entering the international element",
     "DisplayOrder": 11,
@@ -166,7 +166,7 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "ID": "otherProceedings",
+    "ID": "otherProceedings-Open",
     "Name": "Other proceedings",
     "Description": "Entering other proceedings and proposals",
     "DisplayOrder": 12,
@@ -180,7 +180,7 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "ID": "otherProposal",
+    "ID": "otherProposal-Open",
     "Name": "Allocation proposal",
     "Description": "Entering other proceedings and allocation proposals",
     "DisplayOrder": 13,
@@ -194,7 +194,7 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "ID": "attendingHearing",
+    "ID": "attendingHearing-Open",
     "Name": "Attending the hearing",
     "Description": "Enter extra support needed for anyone to take part in hearing",
     "DisplayOrder": 13,
@@ -222,7 +222,7 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "ID": "changeCaseName",
+    "ID": "changeCaseName-Open",
     "Name": "Change case name",
     "Description": "Change case name",
     "DisplayOrder": 15,
