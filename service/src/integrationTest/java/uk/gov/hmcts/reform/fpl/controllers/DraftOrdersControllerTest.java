@@ -134,7 +134,7 @@ class DraftOrdersControllerTest {
 
     @Nested
     class StateChangeTests {
-        private final String event = "internal-changeState:Gatekeeping->PREPARE_FOR_HEARING";
+        private final String event = "internal-changeState:Gatekeeping->PrepareForHearing";
         private final Long caseId = 1L;
 
         @Test

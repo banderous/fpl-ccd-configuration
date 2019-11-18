@@ -2,7 +2,7 @@
   {
     "LiveFrom": "01/01/2017",
     "CaseTypeID": "CARE_SUPERVISION_EPO",
-    "CaseEventID": "amendOtherProceedings-PREPARE_FOR_HEARING",
+    "CaseEventID": "amendOtherProceedings-Gatekeeping",
     "CaseFieldID": "proceeding",
     "PageFieldDisplayOrder": 1,
     "DisplayContext": "OPTIONAL",
