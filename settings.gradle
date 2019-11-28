@@ -1,4 +1,5 @@
 rootProject.name = 'FPL'
 
 include 'service'
+includeFlat 'ccd-sdk'
 

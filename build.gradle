@@ -8,11 +8,12 @@ buildscript {
     pitest group: 'org.pitest', name: 'pitest-junit5-plugin', version: '0.10'
   }
 }
-
 plugins {
   id 'java'
   id 'org.owasp.dependencycheck' version '5.2.4' apply false
 }
+
+apply plugin: ccd.sdk.CcdSdkPlugin
 
 allprojects {
   sourceCompatibility = '11'
