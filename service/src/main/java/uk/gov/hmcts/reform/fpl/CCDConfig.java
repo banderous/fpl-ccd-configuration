@@ -1,9 +1,9 @@
 package uk.gov.hmcts.reform.fpl;
 
 import ccd.sdk.types.BaseCCDConfig;
-import ccd.sdk.types.CaseData;
 import uk.gov.hmcts.reform.fpl.enums.State;
 import uk.gov.hmcts.reform.fpl.enums.UserRole;
+import uk.gov.hmcts.reform.fpl.model.CaseData;
 
 public class CCDConfig extends BaseCCDConfig<CaseData, State, UserRole> {
     @Override
