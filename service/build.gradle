@@ -1,3 +1,14 @@
+buildscript {
+  repositories {
+    maven {
+      url '../../../build/repo'
+    }
+  }
+  dependencies {
+    classpath 'ccd-sdk:ccd-gen:0.1.0'
+  }
+}
+
 plugins {
   id 'application'
   id 'checkstyle'
@@ -9,11 +20,17 @@ plugins {
   id 'project-report'
 }
 
+
+apply plugin: 'ccd.sdk'
 apply plugin: 'info.solidsoft.pitest'
 apply plugin: 'org.owasp.dependencycheck'
 
 group = 'uk.gov.hmcts.reform'
 version = '1.0.0'
+
+ccd {
+  configDir = rootProject.buildDir
+}
 
 sourceSets {
   functionalTest {
@@ -170,6 +187,9 @@ repositories {
     url  "http://repo.spring.io/milestone"
   }
   mavenLocal()
+    maven {
+      url '../../../build/repo'
+    }
 }
 
 // it is important to specify logback classic and core packages explicitly as libraries like spring boot
@@ -215,6 +235,8 @@ dependencies {
   compile group: 'commons-io', name: 'commons-io', version: '2.6'
 
   compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
+
+  compile 'ccd-sdk:ccd-gen:0.1.0'
 
   testCompile (group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: versions.springBoot) {
     exclude group: 'junit', module: 'junit'
