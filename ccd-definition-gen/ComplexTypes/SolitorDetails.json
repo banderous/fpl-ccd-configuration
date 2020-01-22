@@ -1,0 +1,29 @@
+[
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "baz",
+    "ID" : "SolitorDetails",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "bar",
+    "ID" : "SolitorDetails",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "foo",
+    "ID" : "SolitorDetails",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  }
+]

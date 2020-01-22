@@ -752,5 +752,12 @@
     "ID" : "uploadDocuments_paragraph_1",
     "SecurityClassification" : "Public",
     "FieldType" : "Label"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "",
+    "ID" : "solicitorDetails",
+    "SecurityClassification" : "Public",
+    "FieldType" : "SolitorDetails"
   }
 ]

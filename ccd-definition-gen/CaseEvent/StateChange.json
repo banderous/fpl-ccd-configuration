@@ -47,5 +47,22 @@
     "ShowSummary" : "N",
     "ID" : "deleteApplication",
     "CallBackURLAboutToSubmitEvent" : "${CCD_DEF_CASE_SERVICE_BASE_URL}/callback/case-deletion/about-to-submit"
+  },
+  {
+    "ShowEventNotes" : "N",
+    "CallBackURLSubmittedEvent" : "${CCD_DEF_CASE_SERVICE_BASE_URL}/callback/foo-bar/submitted",
+    "LiveFrom" : "01/01/2017",
+    "Description" : null,
+    "DisplayOrder" : 1,
+    "EndButtonLabel" : "Save and continue",
+    "CallBackURLAboutToStartEvent" : "${CCD_DEF_CASE_SERVICE_BASE_URL}/callback/foo-bar/about-to-start",
+    "SecurityClassification" : "Public",
+    "Name" : null,
+    "PreConditionState(s)" : "Open",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "PostConditionState" : "Deleted",
+    "ShowSummary" : "N",
+    "ID" : "foobar",
+    "CallBackURLAboutToSubmitEvent" : "${CCD_DEF_CASE_SERVICE_BASE_URL}/callback/foo-bar/about-to-submit"
   }
 ]
