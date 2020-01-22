@@ -1,0 +1,12 @@
+[
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "FieldTypeParameter" : "String",
+    "ListElementCode" : "reason",
+    "ID" : "GroundsForEPO",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Collection"
+  }
+]

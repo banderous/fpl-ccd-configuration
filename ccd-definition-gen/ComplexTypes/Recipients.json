@@ -1,0 +1,92 @@
+[
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "address",
+    "ID" : "Recipients",
+    "SecurityClassification" : "Public",
+    "FieldType" : "AddressUK"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "date",
+    "ID" : "Recipients",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Date"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "documents",
+    "ID" : "Recipients",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "addressCheck",
+    "ID" : "Recipients",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "postOfficeAddress",
+    "ID" : "Recipients",
+    "SecurityClassification" : "Public",
+    "FieldType" : "AddressUK"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "name",
+    "ID" : "Recipients",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "timeSent",
+    "ID" : "Recipients",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "sentBy",
+    "ID" : "Recipients",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "email",
+    "ID" : "Recipients",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "givenInPerson",
+    "ID" : "Recipients",
+    "SecurityClassification" : "Public",
+    "FieldType" : "AddressUK"
+  }
+]

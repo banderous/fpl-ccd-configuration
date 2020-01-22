@@ -1,0 +1,300 @@
+[
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "keyDates",
+    "ID" : "ChildParty",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "livingSituation",
+    "ID" : "ChildParty",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "dateOfBirth",
+    "ID" : "ChildParty",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Date"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "mothersName",
+    "ID" : "ChildParty",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "additionalNeeds",
+    "ID" : "ChildParty",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "address",
+    "ID" : "ChildParty",
+    "SecurityClassification" : "Public",
+    "FieldType" : "AddressUK"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "fathersResponsibility",
+    "ID" : "ChildParty",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "genderIdentification",
+    "ID" : "ChildParty",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "socialWorkerName",
+    "ID" : "ChildParty",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "datePowersEnd",
+    "ID" : "ChildParty",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Date"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "careAndContactPlan",
+    "ID" : "ChildParty",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "firstName",
+    "ID" : "ChildParty",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "organisationName",
+    "ID" : "ChildParty",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "placementCourt",
+    "ID" : "ChildParty",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "litigationIssuesDetails",
+    "ID" : "ChildParty",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "FieldTypeParameter" : "PartyType",
+    "ListElementCode" : "partyType",
+    "ID" : "ChildParty",
+    "SecurityClassification" : "Public",
+    "FieldType" : "FixedRadioList"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "addressChangeDate",
+    "ID" : "ChildParty",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Date"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "dischargeDate",
+    "ID" : "ChildParty",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Date"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "lastName",
+    "ID" : "ChildParty",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "careStartDate",
+    "ID" : "ChildParty",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Date"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "adoption",
+    "ID" : "ChildParty",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "detailsHiddenReason",
+    "ID" : "ChildParty",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "telephoneNumber",
+    "ID" : "ChildParty",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Telephone"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "litigationIssues",
+    "ID" : "ChildParty",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "livingSituationDetails",
+    "ID" : "ChildParty",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "partyId",
+    "ID" : "ChildParty",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "email",
+    "ID" : "ChildParty",
+    "SecurityClassification" : "Public",
+    "FieldType" : "EmailAddress"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "detailsHidden",
+    "ID" : "ChildParty",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "additionalNeedsDetails",
+    "ID" : "ChildParty",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "gender",
+    "ID" : "ChildParty",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "fathersName",
+    "ID" : "ChildParty",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "socialWorkerTelephoneNumber",
+    "ID" : "ChildParty",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Telephone"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "placementOrderApplication",
+    "ID" : "ChildParty",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  }
+]

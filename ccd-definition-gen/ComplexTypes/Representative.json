@@ -1,0 +1,76 @@
+[
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "positionInACase",
+    "ID" : "Representative",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "email",
+    "ID" : "Representative",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "idamId",
+    "ID" : "Representative",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "fullName",
+    "ID" : "Representative",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "FieldTypeParameter" : "RepresentativeServingPreferences",
+    "ListElementCode" : "servingPreferences",
+    "ID" : "Representative",
+    "SecurityClassification" : "Public",
+    "FieldType" : "FixedRadioList"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "telephoneNumber",
+    "ID" : "Representative",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "address",
+    "ID" : "Representative",
+    "SecurityClassification" : "Public",
+    "FieldType" : "AddressUK"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "FieldTypeParameter" : "RepresentativeRole",
+    "ListElementCode" : "role",
+    "ID" : "Representative",
+    "SecurityClassification" : "Public",
+    "FieldType" : "FixedRadioList"
+  }
+]

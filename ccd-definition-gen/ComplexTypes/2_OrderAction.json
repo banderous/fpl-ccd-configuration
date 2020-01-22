@@ -1,0 +1,40 @@
+[
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "FieldTypeParameter" : "NextHearingType",
+    "ListElementCode" : "nextHearingType",
+    "ID" : "OrderAction",
+    "SecurityClassification" : "Public",
+    "FieldType" : "FixedRadioList"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "document",
+    "ID" : "OrderAction",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Document"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "ListElementCode" : "changeRequestedByJudge",
+    "ID" : "OrderAction",
+    "SecurityClassification" : "Public",
+    "FieldType" : "Text"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "ElementLabel" : null,
+    "FieldTypeParameter" : "ActionType",
+    "ListElementCode" : "type",
+    "ID" : "OrderAction",
+    "SecurityClassification" : "Public",
+    "FieldType" : "FixedRadioList"
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "LiveFrom" : "01/01/2017",
+    "DisplayOrder" : 1,
+    "ListElementCode" : "BLANK_ORDER",
+    "ListElement" : "BLANK_ORDER",
+    "ID" : "GeneratedOrderType"
+  },
+  {
+    "LiveFrom" : "01/01/2017",
+    "DisplayOrder" : 2,
+    "ListElementCode" : "CARE_ORDER",
+    "ListElement" : "CARE_ORDER",
+    "ID" : "GeneratedOrderType"
+  }
+]

@@ -1,0 +1,101 @@
+[
+  {
+    "FieldDisplayOrder" : 1,
+    "LiveFrom" : "01/01/2017",
+    "CaseFieldID" : "orderTypeAndDocument",
+    "CaseEventID" : "createOrderGatekeeping",
+    "DisplayContext" : "OPTIONAL",
+    "ListElementCode" : "type",
+    "ID" : "CreateOrderGatekeeping",
+    "SecurityClassification" : "Public",
+    "EventElementLabel" : null
+  },
+  {
+    "FieldDisplayOrder" : 2,
+    "LiveFrom" : "01/01/2017",
+    "CaseFieldID" : "orderTypeAndDocument",
+    "CaseEventID" : "createOrderGatekeeping",
+    "DisplayContext" : "MANDATORY",
+    "ListElementCode" : "document",
+    "ID" : "CreateOrderGatekeeping",
+    "SecurityClassification" : "Public",
+    "EventElementLabel" : null
+  },
+  {
+    "FieldDisplayOrder" : 1,
+    "LiveFrom" : "01/01/2017",
+    "CaseFieldID" : "order",
+    "CaseEventID" : "createOrderGatekeeping",
+    "DisplayContext" : "READONLY",
+    "ListElementCode" : "title",
+    "ID" : "CreateOrderGatekeeping",
+    "SecurityClassification" : "Public",
+    "EventElementLabel" : null
+  },
+  {
+    "FieldDisplayOrder" : 2,
+    "LiveFrom" : "01/01/2017",
+    "CaseFieldID" : "order",
+    "CaseEventID" : "createOrderGatekeeping",
+    "DisplayContext" : "READONLY",
+    "ListElementCode" : "details",
+    "ID" : "CreateOrderGatekeeping",
+    "SecurityClassification" : "Public",
+    "EventElementLabel" : null
+  },
+  {
+    "FieldDisplayOrder" : 3,
+    "LiveFrom" : "01/01/2017",
+    "CaseFieldID" : "order",
+    "CaseEventID" : "createOrderGatekeeping",
+    "DisplayContext" : "READONLY",
+    "ListElementCode" : "date",
+    "ID" : "CreateOrderGatekeeping",
+    "SecurityClassification" : "Public",
+    "EventElementLabel" : null
+  },
+  {
+    "FieldDisplayOrder" : 1,
+    "LiveFrom" : "01/01/2017",
+    "CaseFieldID" : "judgeAndLegalAdvisor",
+    "CaseEventID" : "createOrderGatekeeping",
+    "DisplayContext" : "OPTIONAL",
+    "ListElementCode" : "judgeTitle",
+    "ID" : "CreateOrderGatekeeping",
+    "SecurityClassification" : "Public",
+    "EventElementLabel" : null
+  },
+  {
+    "FieldDisplayOrder" : 2,
+    "LiveFrom" : "01/01/2017",
+    "CaseFieldID" : "judgeAndLegalAdvisor",
+    "CaseEventID" : "createOrderGatekeeping",
+    "DisplayContext" : "MANDATORY",
+    "ListElementCode" : "judgeLastName",
+    "ID" : "CreateOrderGatekeeping",
+    "SecurityClassification" : "Public",
+    "EventElementLabel" : null
+  },
+  {
+    "FieldDisplayOrder" : 3,
+    "LiveFrom" : "01/01/2017",
+    "CaseFieldID" : "judgeAndLegalAdvisor",
+    "CaseEventID" : "createOrderGatekeeping",
+    "DisplayContext" : "OPTIONAL",
+    "ListElementCode" : "judgeFullName",
+    "ID" : "CreateOrderGatekeeping",
+    "SecurityClassification" : "Public",
+    "EventElementLabel" : null
+  },
+  {
+    "FieldDisplayOrder" : 4,
+    "LiveFrom" : "01/01/2017",
+    "CaseFieldID" : "judgeAndLegalAdvisor",
+    "CaseEventID" : "createOrderGatekeeping",
+    "DisplayContext" : "OPTIONAL",
+    "ListElementCode" : "legalAdvisorName",
+    "ID" : "CreateOrderGatekeeping",
+    "SecurityClassification" : "Public",
+    "EventElementLabel" : null
+  }
+]

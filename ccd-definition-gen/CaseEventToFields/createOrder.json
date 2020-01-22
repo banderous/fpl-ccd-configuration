@@ -1,0 +1,45 @@
+[
+  {
+    "PageID" : "OrderInformation",
+    "LiveFrom" : "01/01/2017",
+    "CaseFieldID" : "orderTypeAndDocument",
+    "DisplayContext" : "COMPLEX",
+    "PageLabel" : " ",
+    "ShowSummaryChangeOption" : "Y",
+    "SecurityClassification" : "Public",
+    "PageDisplayOrder" : 1,
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "CallBackURLMidEvent" : "${CCD_DEF_CASE_SERVICE_BASE_URL}/callback/create-order/mid-event",
+    "CaseEventID" : "createOrder",
+    "PageColumnNumber" : 1,
+    "PageFieldDisplayOrder" : 1
+  },
+  {
+    "PageID" : "OrderInformation",
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "CaseFieldID" : "order",
+    "CaseEventID" : "createOrder",
+    "PageColumnNumber" : 1,
+    "PageFieldDisplayOrder" : 2,
+    "DisplayContext" : "COMPLEX",
+    "PageLabel" : " ",
+    "ShowSummaryChangeOption" : "Y",
+    "SecurityClassification" : "Public",
+    "PageDisplayOrder" : 1
+  },
+  {
+    "PageID" : "JudgeInformation",
+    "LiveFrom" : "01/01/2017",
+    "CaseTypeID" : "CARE_SUPERVISION_EPO",
+    "CaseFieldID" : "judgeAndLegalAdvisor",
+    "CaseEventID" : "createOrder",
+    "PageColumnNumber" : 1,
+    "PageFieldDisplayOrder" : 1,
+    "DisplayContext" : "COMPLEX",
+    "PageLabel" : " ",
+    "ShowSummaryChangeOption" : "Y",
+    "SecurityClassification" : "Public",
+    "PageDisplayOrder" : 2
+  }
+]
