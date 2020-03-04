@@ -10,8 +10,3 @@ pluginManagement {
 rootProject.name = 'FPL'
 
 include 'service'
-includeBuild ('../../ccd-sdk-types') {
-  dependencySubstitution {
-    substitute module('uk.gov.hmcts:ccd-sdk-types') with project(':')
-  }
-}
