@@ -7,7 +7,8 @@
     "ElementLabel": "Child id",
     "SecurityClassification": "Public",
     "DisplayContext": "READONLY",
-    "FieldShowCondition": "placementChildName = \"DO NOT SHOW\""
+    "FieldShowCondition": "placementChildName = \"DO NOT SHOW\"",
+    "FieldDisplayOrder": 4
   },
   {
     "LiveFrom": "01/01/2017",
@@ -16,7 +17,8 @@
     "ListElementCode": "placementChildName",
     "SecurityClassification": "Public",
     "DisplayContext": "MANDATORY",
-    "FieldShowCondition": "placementChildId = \"DO NOT SHOW\""
+    "FieldShowCondition": "placementChildId = \"DO NOT SHOW\"",
+    "FieldDisplayOrder": 5
   },
   {
     "LiveFrom": "01/01/2017",
@@ -25,7 +27,8 @@
     "ListElementCode": "placementApplication",
     "EventElementLabel": "Add document",
     "SecurityClassification": "Public",
-    "DisplayContext": "MANDATORY"
+    "DisplayContext": "MANDATORY",
+    "FieldDisplayOrder": 6
   },
   {
     "LiveFrom": "01/01/2017",
@@ -34,7 +37,8 @@
     "ListElementCode": "placementSupportingDocuments",
     "EventElementLabel": "Upload supporting documents",
     "SecurityClassification": "Public",
-    "DisplayContext": "OPTIONAL"
+    "DisplayContext": "OPTIONAL",
+    "FieldDisplayOrder": 7
   },
   {
     "LiveFrom": "01/01/2017",
@@ -43,7 +47,8 @@
     "ListElementCode": "placementConfidentialDocuments",
     "EventElementLabel": "Upload confidential documents",
     "SecurityClassification": "Public",
-    "DisplayContext": "OPTIONAL"
+    "DisplayContext": "OPTIONAL",
+    "FieldDisplayOrder": 8
   },
   {
     "LiveFrom": "01/01/2017",
@@ -52,7 +57,8 @@
     "ListElementCode": "placementOrderAndNotices",
     "EventElementLabel": "Upload placement order and notices",
     "SecurityClassification": "Public",
-    "DisplayContext": "OPTIONAL"
+    "DisplayContext": "OPTIONAL",
+    "FieldDisplayOrder": 9
   },
   {
     "LiveFrom": "01/01/2017",
@@ -61,7 +67,8 @@
     "ListElementCode": "placementConfidentialDocuments.type",
     "EventElementLabel": "Document type",
     "SecurityClassification": "Public",
-    "DisplayContext": "MANDATORY"
+    "DisplayContext": "MANDATORY",
+    "FieldDisplayOrder": 12
   },
   {
     "LiveFrom": "01/01/2017",
@@ -70,7 +77,8 @@
     "ListElementCode": "placementConfidentialDocuments.document",
     "EventElementLabel": "Add document",
     "SecurityClassification": "Public",
-    "DisplayContext": "MANDATORY"
+    "DisplayContext": "MANDATORY",
+    "FieldDisplayOrder": 13
   },
   {
     "LiveFrom": "01/01/2017",
@@ -79,7 +87,8 @@
     "ListElementCode": "placementConfidentialDocuments.description",
     "EventElementLabel": "Description",
     "SecurityClassification": "Public",
-    "DisplayContext": "OPTIONAL"
+    "DisplayContext": "OPTIONAL",
+    "FieldDisplayOrder": 14
   },
   {
     "LiveFrom": "01/01/2017",
@@ -88,7 +97,8 @@
     "ListElementCode": "placementOrderAndNotices.type_label",
     "EventElementLabel": "## For court official use only",
     "SecurityClassification": "Public",
-    "DisplayContext": "MANDATORY"
+    "DisplayContext": "MANDATORY",
+    "FieldDisplayOrder": 13
   },
   {
     "LiveFrom": "01/01/2017",
@@ -97,7 +107,8 @@
     "ListElementCode": "placementOrderAndNotices.type",
     "EventElementLabel": "Document type",
     "SecurityClassification": "Public",
-    "DisplayContext": "MANDATORY"
+    "DisplayContext": "MANDATORY",
+    "FieldDisplayOrder": 14
   },
   {
     "LiveFrom": "01/01/2017",
@@ -106,7 +117,8 @@
     "ListElementCode": "placementOrderAndNotices.document",
     "EventElementLabel": "Add PDF document",
     "SecurityClassification": "Public",
-    "DisplayContext": "MANDATORY"
+    "DisplayContext": "MANDATORY",
+    "FieldDisplayOrder": 15
   },
   {
     "LiveFrom": "01/01/2017",
@@ -115,7 +127,8 @@
     "ListElementCode": "placementOrderAndNotices.description",
     "EventElementLabel": "Description",
     "SecurityClassification": "Public",
-    "DisplayContext": "OPTIONAL"
+    "DisplayContext": "OPTIONAL",
+    "FieldDisplayOrder": 16
   },
   {
     "LiveFrom": "01/01/2017",
@@ -124,7 +137,8 @@
     "ListElementCode": "placementSupportingDocuments.type",
     "EventElementLabel": "Document type",
     "SecurityClassification": "Public",
-    "DisplayContext": "MANDATORY"
+    "DisplayContext": "MANDATORY",
+    "FieldDisplayOrder": 15
   },
   {
     "LiveFrom": "01/01/2017",
@@ -133,7 +147,8 @@
     "ListElementCode": "placementSupportingDocuments.document",
     "EventElementLabel": "Add document",
     "SecurityClassification": "Public",
-    "DisplayContext": "MANDATORY"
+    "DisplayContext": "MANDATORY",
+    "FieldDisplayOrder": 16
   },
   {
     "LiveFrom": "01/01/2017",
@@ -142,6 +157,7 @@
     "ListElementCode": "placementSupportingDocuments.description",
     "EventElementLabel": "Description",
     "SecurityClassification": "Public",
-    "DisplayContext": "OPTIONAL"
+    "DisplayContext": "OPTIONAL",
+    "FieldDisplayOrder": 17
   }
 ]

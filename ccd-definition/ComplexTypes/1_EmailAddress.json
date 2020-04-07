@@ -9,11 +9,11 @@
     "SecurityClassification": "Public"
   },
   {
-    "LiveFrom" : "01/01/2017",
-    "ElementLabel" : null,
-    "ListElementCode" : "emailUsageType",
-    "ID" : "EmailAddress",
-    "SecurityClassification" : "Public",
-    "FieldType" : "Text"
+    "LiveFrom": "01/01/2017",
+    "ElementLabel": null,
+    "ListElementCode": "emailUsageType",
+    "ID": "EmailAddress",
+    "SecurityClassification": "Public",
+    "FieldType": "Text"
   }
 ]

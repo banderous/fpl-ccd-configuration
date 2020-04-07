@@ -32,7 +32,7 @@
     "DisplayContext": "READONLY",
     "PageDisplayOrder": 1,
     "PageColumnNumber": 1,
-    "FieldShowCondition" : "cmoDraftInReviewHeading=\"DO NOT SHOW\""
+    "FieldShowCondition": "cmoDraftInReviewHeading=\"DO NOT SHOW\""
   },
   {
     "LiveFrom": "01/01/2017",

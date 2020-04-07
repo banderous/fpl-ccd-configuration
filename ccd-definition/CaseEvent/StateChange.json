@@ -48,7 +48,7 @@
     "ID": "internal-changeState:Gatekeeping->PREPARE_FOR_HEARING",
     "Name": "-",
     "Description": "-",
-    "DisplayOrder" : 1,
+    "DisplayOrder": 1,
     "PreConditionState(s)": "Gatekeeping",
     "PostConditionState": "PREPARE_FOR_HEARING",
     "SecurityClassification": "Public"
