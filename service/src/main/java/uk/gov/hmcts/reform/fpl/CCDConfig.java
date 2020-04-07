@@ -24,10 +24,6 @@ import static uk.gov.hmcts.reform.fpl.enums.UserRole.*;
 // The CaseData type parameter tells the generator which class represents your case model.
 public class CCDConfig extends BaseCCDConfig<CaseData, State, UserRole> {
 
-    protected String environment() {
-        return "production";
-    }
-
     // Builds the URL for a webhook based on the event.
     protected String webhookConvention(Webhook webhook, String eventId) {
         eventId = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_HYPHEN, eventId);
@@ -38,7 +34,6 @@ public class CCDConfig extends BaseCCDConfig<CaseData, State, UserRole> {
     @Override
     public void configure() {
         caseType("CARE_SUPERVISION_EPO");
-        setEnvironment(environment());
         setWebhookConvention(this::webhookConvention);
 
         // Describe the hierarchy of which roles go together.
